@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ sinh thái Chiến dịch Tình nguyện Gieo Nắng</title>
+
+    <link rel="icon" type="image/png" href="logo/logo-gn.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Coiny&family=Caveat:wght@700&family=Nunito:wght@400;600;700;900&family=Quicksand:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR LOGO KÉP -->
+    <header id="navbar">
+        <div class="logo">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-images">
+                    <img src="images/logo-lch.png" alt="Logo LCH" class="logo-img org-logo">
+                    <img src="logo/logo-gn.png" alt="Logo Gieo Nắng" class="logo-img camp-logo">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-org">LCH TKT</span>
+                    <span class="logo-campaign">Gieo Nắng</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Trang chủ</a></li>
+            <li class="dropdown">
+                <a href="#">Hành trình <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="season3.html">Gieo Nắng III - Ánh Dương</a></li>
+                    <li><a href="season4.html">Gieo Nắng IV - Ấm trong EM</a></li>
+                    <li><a href="season5.html" class="highlight-5">Gieo Nắng V - Sắc Ban Mai</a></li>
+                </ul>
+            </li>
+                <!-- 1. NÚT BẢN ĐỒ HÀNH TRÌNH (MỚI) -->
+    <li><a href="ĐIỀN_LINK_CỦA_BẠN_VÀO_ĐÂY" target="_blank">Bản đồ hành trình</a></li>
+
+            <li class="dropdown">
+                <a href="#">Hoạt động Mùa V <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="season5.html#khoi-sac">Giải Chạy "Khởi Sắc"</a></li>
+                    <li><a href="season5.html#gom-nang">Workshop "Gom Nắng"</a></li>
+                    <li><a href="season5.html#trao-am">Hoạt động 1 "Trao Ấm"</a></li>
+                    <li><a href="season5.html#thap-lua">Hoạt động 2 "Thắp Lửa"</a></li>
+                    <li><a href="season5.html#don-ban-mai">Hoạt động 3 "Đón Ban Mai"</a></li>
+                </ul>
+            </li>
+            <li><a href="#footer">Liên hệ</a></li>
+        </ul>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <canvas id="particleCanvas"></canvas>
+        <div class="sun-ray"></div>
+        
+        <div class="hero-content">
+            <div class="typography-lockup">
+                
+                <!-- Nhãn dán đã được đẩy lên trên, không che chữ -->
+                <div class="campaign-sticker">
+                    <i class="fa-solid fa-fire"></i> CHIẾN DỊCH TÌNH NGUYỆN
+                </div>
+                
+                <h1 class="hero-title">
+                    <span style="--i:1">G</span>
+                    <span style="--i:2">I</span>
+                    <span style="--i:3">E</span>
+                    <span style="--i:4">O</span>
+                    <span class="space">&nbsp;</span>
+                    <span style="--i:5">N</span>
+                    <span style="--i:6">Ắ</span>
+                    <span style="--i:7">N</span>
+                    <span style="--i:8">G</span>
+                </h1>
+                
+                <h2 class="hero-subtitle-brush">Lan toả hơi ấm, ươm mầm tương lai</h2>
+                
+                <i class="fa-solid fa-sparkles decor-sparkle-1"></i>
+                <i class="fa-solid fa-star decor-sparkle-2"></i>
+            </div>
+        </div>
+
+        <!-- MÃ SVG MỚI: 100% LƯỢN SÓNG UỐN LƯỢN RÕ RÀNG -->
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V86.67C1133.19,118.52,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 1. TẦM NHÌN & SỨ MỆNH -->
+    <section id="vision" class="section-padding">
+        <i class="fa-solid fa-sun watermark-sun"></i>
+
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="font-title">Tầm Nhìn & Sứ Mệnh</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card-vision reveal">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h3 class="font-title">Đáp ứng thực tế</h3>
+                    <p>Khảo sát kỹ lưỡng và giải quyết trực tiếp nhu cầu thiết thực của địa phương bằng các công trình thanh niên mang giá trị bền vững.</p>
+                </div>
+                <div class="card-vision reveal delay-1">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <h3 class="font-title">Rèn luyện toàn diện</h3>
+                    <p>Tạo môi trường hoàn hảo để sinh viên cọ sát kỹ năng sống, rèn luyện thể lực và đạo đức, hướng tới hình mẫu Sinh viên 5 Tốt.</p>
+                </div>
+                <div class="card-vision reveal delay-2">
+                    <i class="fa-solid fa-hands-holding-child"></i>
+                    <h3 class="font-title">Lan tỏa yêu thương</h3>
+                    <p>Đồng hành, sẻ chia khó khăn vật chất và tinh thần cùng các em nhỏ mồ côi, đồng bào dân tộc thiểu số và gia đình chính sách.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. MÙA III - ÁNH DƯƠNG -->
+    <section id="season3" class="section-padding">
+        <div class="shape-wave-top">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V0H1200V86.67C1133.19,118.52,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="watermark-text">III</div>
+
+        <div class="container split-layout">
+            <div class="split-content reveal">
+                <span class="season-tag">Năm 2024</span>
+                <h2 class="font-title">Mùa III - Ánh Dương</h2>
+                <p>Khởi nguồn từ khao khát mang ánh sáng tri thức, Gieo Nắng III đã để lại dấu ấn rực rỡ khi hỗ trợ trực tiếp 83 em nhỏ tại Nhà Tình Thương Giáo Xứ Búng (Bình Dương).</p>
+                <p>Chiến dịch ghi dấu ấn với công trình thanh niên <b>"Tủ sách ước mơ"</b>, khơi dậy văn hóa đọc cho các em học sinh nghèo dân tộc thiểu số tại huyện Bù Đăng, Bình Phước.</p>
+                <a href="season3.html" class="btn btn-outline mt-10">Xem lại hành trình Mùa III</a>
+            </div>
+            
+            <div class="artistic-grid reveal fade-left">
+                <img src="gn3/bg-gn3.jpg" alt="GN3-1">
+                <img src="gn3/chung/chung3.JPG" alt="GN3-2">
+                <img src="gn3/hd2-suoi/suoi12.JPG" alt="GN3-3">
+                <img src="gn3/chung/chung1.JPG" alt="GN3-4">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MÙA IV - ẤM TRONG EM -->
+    <section id="season4" class="section-padding">
+        <div class="shape-wave-top">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="watermark-text text-yellow">IV</div>
+
+        <div class="container split-layout reverse">
+            <div class="split-content reveal">
+                <span class="season-tag">Năm 2025</span>
+                <h2 class="font-title">Mùa IV - Ấm trong EM</h2>
+                <p>Trưởng thành mạnh mẽ, Gieo Nắng IV lan tỏa hơi ấm qua 150 suất ăn từ thiện trao tay những mảnh đời mưu sinh tại TP.HCM.</p>
+                <p>Đặc biệt, chiến dịch đã kiến tạo thành công <b>"Khu vườn Tri thức"</b> và <b>"Trạm Nắng"</b> y tế học đường, nâng cao chất lượng sống và học tập cho các em nhỏ tại phường Cao Lãnh, Đồng Tháp.</p>
+                <a href="season4.html" class="btn btn-outline mt-10">Xem lại hành trình Mùa IV</a>
+            </div>
+            
+            <div class="artistic-grid reveal fade-right">
+                <img src="gn4/tapthe-gn4/tapthe1.JPG" alt="GN4-1">
+                <img src="gn4/tapthe-gn4/tapthe2.JPG" alt="GN4-2">
+                <img src="gn4/tapthe-gn4/tapthe7.JPG" alt="GN4-3">
+                <img src="gn4/tapthe-gn4/tapthe12.JPG" alt="GN4-4">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MÙA V - TÂM ĐIỂM -->
+    <section id="season5" class="section-padding">
+        <div class="shape-wave-top">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="shape-fill opacity-25"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" class="shape-fill opacity-50"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="particles"></div>
+
+        <div class="container reveal fade-up">
+            <div class="glass-card">
+                <span class="font-handwriting glow-text">🌟 Tâm điểm năm nay</span>
+                <h2 class="font-title">Mùa V - Sắc Ban Mai</h2>
+                <p>Tiếp nối ngọn lửa nhiệt huyết, Gieo Nắng V hứa hẹn một hành trình bùng nổ tại Làng trẻ SOS Gò Vấp và Trường TH Lam Sơn (Đồng Nai). Cùng chúng mình xây dựng "Trạm Sách Ước Mơ", "Sân chơi cho EM" và lan tỏa yêu thương ngay lúc này!</p>
+                <a href="season5.html" class="btn btn-pulse">Khám phá hành trình Mùa V</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-box reveal">
+                    <h3 class="font-title text-yellow">☀️ Cùng Góp Nắng Mùa V</h3>
+                    <p class="footer-desc">Mỗi đóng góp dù nhỏ nhất đều là một tia nắng sưởi ấm mầm non tại Làng SOS Gò Vấp và Đồng Nai. Hãy chung tay cùng sinh viên Khoa Toán Kinh tế kiến tạo những công trình ý nghĩa.</p>
+                    <a href="season5.html#quy-gop" class="btn btn-solid-blue">Đóng góp hiện vật & Quỹ</a>
+                </div>
+                <div class="footer-box reveal delay-1">
+                    <h3 class="font-title text-yellow">Thông Tin Liên Hệ</h3>
+                    <ul class="contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> LCH Khoa Toán Kinh tế - UEL</li>
+                        <li><i class="fa-solid fa-envelope"></i> lchtoankinhte@st.uel.edu.vn</li>
+                        <li><i class="fa-brands fa-facebook"></i> LCH Khoa Toán Kinh Tế UEL</li>
+                        <li><i class="fa-brands fa-instagram"></i> _lchtktuel_</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Chiến dịch tình nguyện Gieo Nắng. Designed by _irtdn_ aka Nguyen Duc Tri.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
