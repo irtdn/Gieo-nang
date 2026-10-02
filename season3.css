@@ -1,0 +1,463 @@
+/* =========================================
+   1. VARIABLES & RESET
+========================================= */
+:root {
+    --pastel-yellow: #FFF6C3;
+    --pastel-orange: #FFE5D0;
+    --pastel-jade: #D4F1F4;
+    --paper-bg: #FDFBF7;
+    
+    --navy: #004AAD;
+    --sky-blue: #38B6FF;
+    --yellow: #FFB703;
+    --pink: #FF6B6B;
+    --white: #FFFFFF;
+    
+    --shadow-soft: 0 10px 20px rgba(0,0,0,0.05);
+    --shadow-polaroid: 2px 8px 25px rgba(0,0,0,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* FIX LỖI SCROLL NGANG: Khóa trục X tuyệt đối */
+html, body { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; 
+    width: 100%;
+    max-width: 100vw;
+}
+
+body { 
+    font-family: 'Nunito', sans-serif; 
+    color: #444; 
+    /* Texture giấy mờ nhẹ */
+    background-color: var(--pastel-yellow);
+    background-image: radial-gradient(#ccc 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+/* Typography */
+.font-hand { font-family: 'Patrick Hand', 'Caveat', cursive; }
+.font-title { font-family: 'Quicksand', sans-serif; font-weight: 700; color: var(--navy); }
+.title-large { font-size: clamp(35px, 5vw, 50px); font-weight: 700; letter-spacing: 2px; }
+
+.text-navy { color: var(--navy); }
+.text-pink { color: var(--pink); }
+.text-yellow { color: var(--yellow) !important; }
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;}
+.section-padding { padding: 100px 0; overflow: hidden; /* Ngăn chặn rò rỉ đồ họa */ }
+
+.bg-paper { background-color: var(--paper-bg); }
+.bg-pastel-orange { background-color: var(--pastel-orange); }
+.bg-pastel-jade { background-color: var(--pastel-jade); }
+
+/* =========================================
+   2. NAVBAR TỪ TRANG CHỦ (CỐ ĐỊNH)
+========================================= */
+header { 
+    position: fixed; top: 0; left: 0; width: 100%; 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 20px 50px; z-index: 1000; transition: 0.4s; 
+}
+header.scrolled { 
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 15px 50px; 
+}
+
+.logo-wrapper { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+.logo-images { position: relative; width: 70px; height: 45px; }
+.logo-img { 
+    position: absolute; width: 45px; height: 45px; border-radius: 50%; 
+    border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); object-fit: cover;
+}
+.org-logo { left: 0; z-index: 2; transform: rotate(-10deg); }
+.camp-logo { left: 25px; z-index: 1; transform: rotate(10deg); }
+
+.logo-wrapper:hover .org-logo { transform: translateY(-5px) rotate(-20deg) scale(1.1); z-index: 3;}
+.logo-wrapper:hover .camp-logo { transform: translateY(5px) rotate(25deg) scale(1.1); z-index: 3;}
+
+.logo-text { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
+.logo-org { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 900; color: var(--navy); letter-spacing: 2px; text-shadow: 0 1px 2px rgba(255,255,255,0.8);}
+.logo-campaign { font-family: 'Baloo 2', cursive; font-size: 26px; font-weight: 800; color: var(--yellow); text-shadow: -1px 1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff, 0 4px 8px rgba(0,0,0,0.2); transform: translateY(-2px) rotate(-2deg); }
+
+header.scrolled .logo-org, header.scrolled .logo-campaign { text-shadow: none; transform: translateY(-2px) rotate(0); }
+
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links > li > a { 
+    font-weight: 700; font-family: 'Quicksand'; font-size: 16px; 
+    transition: 0.3s; text-shadow: 0 1px 2px rgba(255,255,255,0.8); color: var(--navy);
+}
+header.scrolled .nav-links > li > a { text-shadow: none; }
+.nav-links > li > a:hover { color: var(--yellow); }
+
+.dropdown { position: relative; }
+.dropdown-menu { 
+    position: absolute; top: 150%; left: 0; background: var(--white); 
+    min-width: 260px; box-shadow: var(--shadow-soft); border-radius: 15px; 
+    opacity: 0; visibility: hidden; transform: translateY(10px); 
+    transition: 0.3s; overflow: hidden; border: 1px solid #eee; 
+}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); top: 100%; }
+.dropdown-menu li a { display: block; padding: 15px 20px; font-weight: 600; border-bottom: 1px solid #f1f1f1; transition: 0.3s; color: var(--text-dark);}
+.dropdown-menu li a:hover { background: var(--pastel-yellow); color: var(--navy); padding-left: 25px; }
+
+.menu-toggle { display: none; cursor: pointer; font-size: 24px; color: var(--navy); }
+
+/* =========================================
+   3. BỤI TIÊN & CÁC THÀNH PHẦN SCRAPBOOK
+========================================= */
+#fairyDustCanvas {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none; z-index: 1;
+}
+
+.washi-tape {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%) rotate(-3deg);
+    width: 120px; height: 35px; background: rgba(255, 183, 3, 0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 10;
+}
+.tape-1 { background: rgba(255, 107, 107, 0.5); transform: translateX(-50%) rotate(4deg); }
+.tape-2 { background: rgba(168, 230, 207, 0.6); transform: translateX(-50%) rotate(-5deg); width: 140px;}
+.tape-3 { background: rgba(255, 215, 0, 0.5); }
+
+.polaroid {
+    background: #FFF;
+    padding: 10px 10px 40px 10px; 
+    border: 1px solid #EEE;
+    box-shadow: var(--shadow-polaroid);
+    position: relative;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+.polaroid img { width: 100%; height: calc(100% - 30px); object-fit: cover; }
+.polaroid p { position: absolute; bottom: 10px; left: 0; width: 100%; text-align: center; font-size: 20px; color: #444; }
+
+/* =========================================
+   4. HERO SECTION - CỜ DÂY TREO CHỮ
+========================================= */
+#hero-scrapbook {
+    min-height: 100vh; position: relative;
+    display: flex; justify-content: center; align-items: center;
+    text-align: center; z-index: 2; padding-top: 80px;
+    overflow: hidden; /* Cực kỳ quan trọng: Giữ rope-line không làm scroll ngang */
+    width: 100%;
+}
+.hero-content { display: flex; flex-direction: column; align-items: center; width: 100%;}
+
+.gn-season-title {
+    font-family: 'Coiny', cursive;
+    font-size: clamp(28px, 5vw, 60px);
+    color: var(--navy);
+    text-shadow: 2px 2px 0 var(--white), 4px 4px 0 var(--yellow);
+    margin-bottom: 10px;
+    transform: rotate(-2deg);
+    z-index: 10;
+    position: relative;
+}
+
+.rope-line {
+    position: absolute; top: 50%; left: -10%; width: 120%; height: 50px;
+    border-top: 4px dashed #cd853f; border-radius: 50%; 
+    z-index: 1; pointer-events: none;
+}
+
+.swinging-title {
+    display: flex; justify-content: center; gap: clamp(5px, 1.5vw, 10px);
+    font-family: 'Coiny', cursive; 
+    margin-top: 10px; position: relative; z-index: 5; flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.swinging-title span {
+    display: inline-block;
+    color: var(--white);
+    -webkit-text-stroke: 2px var(--navy);
+    background: var(--c); 
+    padding: clamp(3px, 1vw, 5px) clamp(8px, 2vw, 15px);
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 var(--navy);
+    font-size: clamp(30px, 7vw, 90px); /* Thu gọn mượt mà trên mọi thiết bị */
+    
+    transform-origin: top center;
+    animation: swing 3s infinite ease-in-out alternate;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+.swinging-title span.space { background: transparent; box-shadow: none; border: none; padding: 0; width: 2vw;}
+
+@keyframes swing {
+    0% { transform: rotate(8deg); }
+    100% { transform: rotate(-8deg); }
+}
+
+.date-badge {
+    margin-top: 40px; display: inline-block;
+    background: #FFF; padding: 10px 30px; border-radius: 5px;
+    font-family: 'Patrick Hand'; font-size: clamp(18px, 3vw, 24px); color: var(--navy);
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    transform: rotate(3deg);
+}
+
+/* =========================================
+   5. HOẠT ĐỘNG 1: GIẤY NOTE & PILE ẢNH
+========================================= */
+.split-layout { display: flex; align-items: center; gap: 60px; }
+
+.note-paper {
+    flex: 1; background: #FFF9C4; padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
+    border-radius: 2px; position: relative;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+}
+.note-paper::after {
+    content: ""; position: absolute; bottom: 0; right: 0;
+    border-width: 25px; border-style: solid;
+    border-color: #f1eab3 #f1eab3 transparent transparent;
+    box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+}
+.note-paper h2 { font-size: clamp(30px, 4vw, 40px); margin-bottom: 15px; }
+.note-paper h3 { font-family: 'Nunito'; font-size: clamp(16px, 2vw, 20px); margin-bottom: 20px; color: var(--navy);}
+.note-paper p { font-size: clamp(15px, 2vw, 18px); line-height: 1.8; }
+.doodle-icon { position: absolute; bottom: 20px; left: 30px; font-size: 30px; opacity: 0.5;}
+
+.polaroid-pile { flex: 1; height: 450px; position: relative; width: 100%;}
+.pile-item { 
+    position: absolute; 
+    width: clamp(200px, 25vw, 280px); /* Tự động co giãn theo màn hình */
+    height: clamp(160px, 20vw, 230px);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; 
+}
+
+/* Đổi px thành % để xấp ảnh không bao giờ tràn ra ngoài cột chứa nó */
+.p1 { top: 5%; left: 5%; transform: rotate(-8deg); z-index: 1;}
+.p2 { top: 15%; right: 5%; transform: rotate(12deg); z-index: 2;}
+.p3 { bottom: 10%; left: 10%; transform: rotate(5deg); z-index: 3;}
+.p4 { bottom: 5%; right: 15%; transform: rotate(-6deg); z-index: 4;}
+.p5 { top: 25%; left: 30%; transform: rotate(2deg); z-index: 5;}
+
+.pile-item:hover { z-index: 20 !important; transform: scale(1.15) rotate(0) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+/* =========================================
+   6. HOẠT ĐỘNG 2: DÂY PHƠI ẢNH
+========================================= */
+.text-center { text-align: center; }
+.desc-text { font-size: clamp(15px, 2vw, 18px); margin-top: 10px; font-family: 'Nunito'; font-weight: 600;}
+
+.clothesline-wrapper { position: relative; margin-top: 40px; width: 100%; overflow-x: auto; padding: 20px 0 40px 0;}
+
+.clothesline-wrapper::-webkit-scrollbar { height: 8px; }
+.clothesline-wrapper::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.3); border-radius: 10px; margin: 0 40px; }
+.clothesline-wrapper::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 10px; }
+.clothesline-wrapper::-webkit-scrollbar-thumb:hover { background: var(--navy); }
+.clothesline-wrapper { scrollbar-width: thin; scrollbar-color: var(--pink) rgba(255, 255, 255, 0.3); }
+
+.line { position: absolute; top: 30px; left: -10%; width: 120%; height: 3px; background: rgba(0,0,0,0.3); border-radius: 50%; z-index: 1;}
+
+.hanging-photos { display: flex; gap: 30px; padding: 0 40px; width: max-content; margin: 0 auto; position: relative; z-index: 2;}
+.hanging-item { position: relative; width: 260px; cursor: pointer; transform-origin: top center; transition: 0.3s;}
+
+.peg { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 10px; height: 35px; background: #8B4513; border-radius: 5px; z-index: 10; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);}
+
+.hanging-item .polaroid { height: 210px; }
+
+.h-rotate-1 { transform: rotate(-3deg); }
+.h-rotate-2 { transform: rotate(4deg); }
+.h-rotate-3 { transform: rotate(-1deg); }
+.h-rotate-4 { transform: rotate(5deg); }
+
+.hanging-item:hover { animation: gentleSwing 1s ease-in-out infinite alternate; z-index: 10;}
+@keyframes gentleSwing { 0% { transform: rotate(-5deg); } 100% { transform: rotate(5deg); } }
+
+/* =========================================
+   7. HOẠT ĐỘNG 3: TAB & CAROUSEL
+========================================= */
+.tabs-container { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap;}
+.tab-btn { background: #FFF; border: 2px solid var(--navy); border-radius: 10px 10px 0 0; padding: 12px 30px; font-family: 'Quicksand'; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; color: var(--navy); box-shadow: 2px -2px 0 rgba(0,0,0,0.1);}
+.tab-btn:hover { background: #EAF4FC; transform: translateY(-3px);}
+.tab-btn.active { background: var(--navy); color: #FFF; transform: translateY(0); box-shadow: none;}
+
+.tab-content-wrapper { background: #FFF; padding: 40px 20px; border-radius: 20px; box-shadow: var(--shadow-polaroid); position: relative; max-width: 1000px; margin: 0 auto; border: 3px dashed #CCC;}
+
+.tab-panel { display: none; animation: fadeIn 0.5s ease; }
+.tab-panel.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.panel-desc { font-size: clamp(15px, 2vw, 18px); text-align: center; margin-bottom: 30px; font-weight: 600;}
+
+.carousel-scroll { 
+    display: flex; gap: 20px; overflow-x: auto; padding: 10px 10px 30px 10px; scroll-snap-type: x mandatory;
+    scrollbar-width: thin; scrollbar-color: var(--yellow) rgba(0, 0, 0, 0.05); 
+}
+.carousel-scroll::-webkit-scrollbar { height: 8px; }
+.carousel-scroll::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 10px; margin: 0 20px; }
+.carousel-scroll::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 10px; }
+.carousel-scroll::-webkit-scrollbar-thumb:hover { background: var(--pink); }
+
+.carousel-scroll .polaroid { flex: 0 0 320px; height: 250px; scroll-snap-align: center; transition: 0.3s; cursor: pointer; }
+.carousel-scroll .polaroid:hover { transform: scale(1.05) translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+/* =========================================
+   8. FOOTER CHUNG (VIBE SCRAPBOOK)
+========================================= */
+footer { 
+    background: var(--navy); color: #fff; padding: 80px 0 30px; margin-top: 80px; position: relative;
+}
+footer::before {
+    content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px;
+    background-image: radial-gradient(circle at 10px 0, transparent 10px, var(--navy) 11px);
+    background-size: 20px 15px; background-repeat: repeat-x;
+}
+
+.footer-content { 
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; 
+    padding-bottom: 40px; border-bottom: 2px dashed rgba(255,255,255,0.2); 
+}
+.footer-box h3 { font-family: 'Caveat', cursive; font-size: 35px; color: var(--yellow); margin-bottom: 15px; letter-spacing: 1px;}
+.footer-desc { font-size: 16px; margin-bottom: 25px; color: #EAF4FC; line-height: 1.6;}
+.contact-list li { margin-bottom: 15px; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 15px; color: #EAF4FC; font-family: 'Quicksand', sans-serif;}
+.contact-list i { color: var(--pink); font-size: 20px;}
+.copyright { text-align: center; margin-top: 20px; color: rgba(255,255,255,0.6); font-size: 14px; font-family: 'Nunito', sans-serif;}
+
+.btn-scrapbook {
+    background: var(--pink); color: #fff; padding: 12px 30px; border-radius: 8px; font-weight: 800; font-family: 'Quicksand', sans-serif; text-transform: uppercase; transition: 0.3s; box-shadow: 4px 4px 0px var(--yellow); display: inline-block;
+}
+.btn-scrapbook:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--yellow); color: #fff;}
+
+/* =========================================
+   9. ANIMATION REVEAL
+========================================= */
+.reveal { opacity: 0; transform: translateY(50px); transition: 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.2s; }
+
+/* =========================================
+   10. MEDIA QUERIES (TỐI ƯU RESPONSIVE)
+========================================= */
+
+/* Tối ưu vùng đệm Laptop 1200px - 1440px */
+@media (max-width: 1200px) {
+    .split-layout { gap: 30px; }
+    header { padding: 15px 30px; }
+    header.scrolled { padding: 15px 30px; }
+    .nav-links { gap: 20px; }
+}
+
+/* Tablet và Màn hình hẹp */
+@media (max-width: 900px) {
+    .split-layout { flex-direction: column; text-align: center;}
+    .note-paper::after { display: none; }
+    .polaroid-pile { height: 400px; width: 100%; max-width: 500px; margin: 30px auto 0 auto;}
+    .rope-line { display: none; } /* Cờ dây không đẹp ở màn dọc, ẩn đi */
+    
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .contact-list li { justify-content: center; }
+}
+
+/* Mobile thông thường */
+@media (max-width: 768px) {
+    .logo-images { width: 55px; height: 35px; }
+    .logo-img { width: 35px; height: 35px; }
+    .camp-logo { left: 20px; }
+    .logo-org { font-size: 11px; }
+    .logo-campaign { font-size: 20px; }
+    
+    header { padding: 15px 20px; }
+    .menu-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); padding: 0;}
+    .nav-links.active { display: flex; }
+    .nav-links li { width: 100%; border-bottom: 1px solid #eee; }
+    .nav-links li a { display: block; padding: 15px; text-align: center; color: var(--navy) !important; text-shadow: none !important;}
+    .dropdown-menu { position: static; box-shadow: none; display: none; border: none; background: #fafafa;}
+    .dropdown:hover .dropdown-menu { display: block; }
+    
+        /* FIX LỖI 2: Ngăn ảnh đè lên trên bằng cách thả trôi tọa độ TOP */
+    .polaroid-pile {
+        min-height: 380px !important; 
+        margin-top: 50px !important; /* Đẩy xấp ảnh cách xa tờ giấy note */
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    /* Giữ nguyên tỷ lệ ảnh Ngang */
+    .pile-item {
+        width: 150px !important; 
+        height: 170px !important; 
+    }
+    .pile-item p {
+        font-size: 13px !important;
+        bottom: 8px !important;
+    }
+
+    /* 
+       Xếp ảnh theo hiệu ứng thác nước (Chỉ dùng TOP, không dùng BOTTOM).
+       Trình duyệt sẽ không bao giờ bị loạn tọa độ nữa.
+    */
+    .p1 { top: 0px !important; left: 0px !important; transform: rotate(-8deg) !important; }
+    .p2 { top: 20px !important; right: 0px !important; transform: rotate(12deg) !important; }
+    
+    .p5 { top: 90px !important; left: 50% !important; transform: translateX(-50%) rotate(2deg) !important; z-index: 6 !important; }
+    
+    .p3 { top: 170px !important; left: 5px !important; transform: rotate(5deg) !important; }
+    .p4 { top: 190px !important; right: 5px !important; transform: rotate(-6deg) !important; }
+
+
+    .carousel-scroll .polaroid { flex: 0 0 250px; height: 200px; }
+    .carousel-scroll .polaroid p { font-size: 16px; }
+    
+    .tabs-container { flex-direction: column; padding: 0 10px;}
+    .tab-btn { width: 100%; border-radius: 10px; margin-bottom: 5px; box-shadow: none;}
+}
+
+/* =========================================
+   ĐẠI PHẪU MOBILE CỠ NHỎ (Bản vá lỗi 375px)
+========================================= */
+@media (max-width: 480px) {
+    /* FIX LỖI 1: Cấm tuyệt đối rớt chữ "G" */
+    .swinging-title {
+        gap: 3px !important;
+        flex-wrap: nowrap !important; /* Ép buộc tất cả nằm trên 1 dòng */
+    }
+    .swinging-title span {
+        font-size: 20px !important; /* Ép font nhỏ lại vừa vặn */
+        padding: 3px 6px !important; 
+        border-radius: 6px !important;
+    }
+    .swinging-title span.space {
+        width: 6px !important; 
+    }
+
+    /* FIX LỖI 2: Ngăn ảnh đè lên trên bằng cách thả trôi tọa độ TOP */
+    .polaroid-pile {
+        min-height: 380px !important; 
+        margin-top: 50px !important; /* Đẩy xấp ảnh cách xa tờ giấy note */
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    /* Giữ nguyên tỷ lệ ảnh Ngang */
+    .pile-item {
+        width: 150px !important; 
+        height: 170px !important; 
+    }
+    .pile-item p {
+        font-size: 13px !important;
+        bottom: 8px !important;
+    }
+
+    /* 
+       Xếp ảnh theo hiệu ứng thác nước (Chỉ dùng TOP, không dùng BOTTOM).
+       Trình duyệt sẽ không bao giờ bị loạn tọa độ nữa.
+    */
+    .p1 { top: 0px !important; left: 0px !important; transform: rotate(-8deg) !important; }
+    .p2 { top: 20px !important; right: 0px !important; transform: rotate(12deg) !important; }
+    
+    .p5 { top: 90px !important; left: 50% !important; transform: translateX(-50%) rotate(2deg) !important; z-index: 6 !important; }
+    
+    .p3 { top: 170px !important; left: 5px !important; transform: rotate(5deg) !important; }
+    .p4 { top: 190px !important; right: 5px !important; transform: rotate(-6deg) !important; }
+}
+

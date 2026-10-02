@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gieo Nắng V - Sắc Ban Mai | Teaser Campaign</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="season5.css">
+</head>
+<body class="theme-ghibli">
+
+    <!-- ==========================================
+         NAVBAR & HERO SECTION (GIỮ NGUYÊN)
+    =========================================== -->
+    <header id="navbar">
+        <div class="logo">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-images">
+                    <img src="images/logo-lch.png" alt="Logo LCH" class="logo-img org-logo">
+                    <img src="logo/logo-gn.png" alt="Logo Gieo Nắng" class="logo-img camp-logo">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-org text-navy">LCH TKT</span>
+                    <span class="logo-campaign text-glow-sun">Gieo Nắng</span>
+                </div>
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars text-navy"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="dropdown">
+                <a href="#" class="active">Hành trình <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="season3.html">Gieo Nắng III - Ánh Dương</a></li>
+                    <li><a href="season4.html">Gieo Nắng IV - Ấm trong EM</a></li>
+                    <li><a href="season5.html" class="highlight-s5">Gieo Nắng V - Sắc Ban Mai</a></li>
+                </ul>
+            </li>
+            <li><a href="ĐIỀN_LINK_CỦA_BẠN_VÀO_ĐÂY" target="_blank">Bản đồ hành trình</a></li>
+            <li class="dropdown">
+                <a href="#">Hoạt động Mùa V <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="season5.html#khoi-sac">Giải Chạy "Khởi Sắc"</a></li>
+                    <li><a href="season5.html#gom-nang">Workshop "Gom Nắng"</a></li>
+                    <li><a href="season5.html#trao-am">Hoạt động 1 "Trao Ấm"</a></li>
+                    <li><a href="season5.html#thap-lua">Hoạt động 2 "Thắp Lửa"</a></li>
+                    <li><a href="season5.html#don-ban-mai">Hoạt động 3 "Đón Ban Mai"</a></li>
+                </ul>
+            </li>
+            <li><a href="#footer">Liên hệ</a></li>
+        </ul>
+    </header>
+
+    <section id="hero-ghibli" class="hero-parallax-scene">
+        <div class="layer p-layer-base-bg" style="background-image: url('element-gn5/bg-ngang.png');"></div>
+        <div class="layer p-layer-bg" style="background-image: url('element-gn5/bg.jpg');"></div>
+        <div class="layer p-layer-sun"><img src="element-gn5/mattroinho.png" alt="Mặt trời nhỏ" class="anim-spin-sun"></div>
+        <div class="layer p-layer-title">
+            <div class="title-group anim-float-title">
+                <img src="element-gn5/chiendichtinhnguyen.png" alt="Chiến dịch Tình nguyện" class="sub-title">
+                <img src="element-gn5/tieude.png" alt="Sắc Ban Mai" class="main-title">
+            </div>
+        </div>
+        <div class="layer p-layer-characters">
+            <img src="element-gn5/girl-removebg-preview.png" alt="Cô bé bay bổng" class="anim-girl-fly char-girl">
+            <img src="element-gn5/boy-removebg-preview.png" alt="Cậu bé đạp xe" class="anim-bike-ride char-boy">
+        </div>
+        <div class="layer p-layer-flower-front"><img src="element-gn5/thamhoa2.png" alt="Hoa cận cảnh" class="single-flower-layer anim-sway-fast"></div>
+        <div class="scroll-magic-hint">
+            <span class="font-cute">Bắt đầu hành trình</span>
+            <i class="fa-solid fa-angles-down anim-bounce"></i>
+        </div>
+    </section>
+
+    <div id="letterModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fa-solid fa-xmark"></i></span>
+            <img src="images/thungo.png" alt="Thư ngỏ Gieo Nắng V" class="letter-img">
+        </div>
+    </div>
+
+    <section class="donate-banner">
+        <div class="container text-center reveal-up">
+            <h2 class="font-cute text-navy">Ủng hộ chúng mình kiến tạo Sắc Ban Mai nhé! 🌻</h2>
+            <button id="openLetterBtn" class="btn-donate-pulse font-title"><i class="fa-solid fa-envelope-open-text"></i> Xem Thư Ngỏ & Góp Nắng</button>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CỤM GÂY QUỸ (GIỮ NGUYÊN)
+    =========================================== -->
+    <section class="activity-section bg-pastel-yellow" id="khoi-sac">
+        <div class="container split-act">
+            <div class="act-visual reveal-slide-right">
+                <img src="images/gayquynhe.png" alt="Khởi Sắc" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-left">
+                <h3 class="font-cute text-pink">Hình thức Gây quỹ 1</h3>
+                <h2 class="font-title text-navy act-name">Giải Chạy "Khởi Sắc"</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>03/10 - 15/11/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Trực tuyến (Sports Tracker)</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>Sinh viên TP.HCM</span></div>
+                    <div class="info-item"><i class="fa-solid fa-person-running"></i> <span>Mức đăng ký: 15-25km</span></div>
+                </div>
+
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Chia sẻ bài viết phát động trên mạng xã hội kèm Hashtag.</li>
+                                <li>Hoàn thành số KM tương ứng với mức đóng góp gây quỹ (Ví dụ: 15km tương ứng 39.000 VNĐ).</li>
+                                <li>Gửi minh chứng thông qua biểu mẫu của Liên Chi hội.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Được cấp Giấy chứng nhận tham gia, ghi nhận tiêu chí "Thể lực tốt".</li>
+                                <li>Ghi nhận 01 ngày CTXH (đối với sinh viên UEL).</li>
+                                <li>Ghi nhận 01 điểm rèn luyện (đối với sinh viên UEL).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSergj9DWXGBuo2hDPYi8HDOWJUMTm1RLwcTAhIgGiT5NpnAVA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="activity-section bg-pastel-orange" id="gom-nang">
+        <div class="container split-act reverse">
+            <div class="act-visual reveal-slide-left">
+                <img src="images/gayquynhe.png" alt="Gom Nắng" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-right">
+                <h3 class="font-cute text-navy">Hình thức Gây quỹ 2</h3>
+                <h2 class="font-title text-pink act-name">Workshop "Gom Nắng"</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>14/10 - 16/10/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Sảnh Trường ĐH Kinh tế - Luật</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>Sinh viên UEL</span></div>
+                </div>
+
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Làm đồ thủ công (móc khóa, vòng tay) phát huy tính sáng tạo.</li>
+                                <li>Mức đóng góp gây quỹ từ 39.000 VNĐ.</li>
+                                <li>Tuân thủ an toàn, giữ gìn vệ sinh khu vực làm việc.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Được cung cấp đầy đủ nguyên vật liệu (hạt cườm, phôi móc khóa...).</li>
+                                <li>Ghi nhận 03 điểm rèn luyện (đối với sinh viên UEL).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScRStuOThCxnIAL86MnxKmAIvIQWkFy_ZmTKHxHhylOj61KnA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CỤM CHIẾN DỊCH CHÍNH (ĐÃ BỔ SUNG CHI TIẾT TỪ KẾ HOẠCH)
+    =========================================== -->
+
+    <!-- Hoạt động 1: Trao Ấm -->
+    <section class="activity-section bg-pastel-peach" id="trao-am">
+        <div class="container split-act">
+            <div class="act-visual reveal-slide-right">
+                <img src="images/thamgianhe.png" alt="Trao Ấm"  class="act-img">
+            </div>
+            <div class="act-info reveal-slide-left">
+                <h3 class="font-cute text-navy">Hoạt động 1</h3>
+                <h2 class="font-title text-pink act-name">Trao Ấm (Mặt trận TP)</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>08/11/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Làng trẻ em SOS Gò Vấp</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>50 TNV (15 BTC + 35 TNV)</span></div>
+                </div>
+
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <!-- BỔ SUNG CHI TIẾT THEO PDF -->
+                            <ul>
+                                <li>Kiểm tra và đóng gói quà tặng cẩn thận.</li>
+                                <li>Tổ chức giao lưu, trao tặng 70 phần quà dụng cụ học tập và 2 phần học bổng thiết thực cho các em nhỏ.</li>
+                                <li>Tổ chức không gian vẽ tranh và tô màu tự do phát huy tư duy sáng tạo.</li>
+                                <li>Tổ chức gian hàng trò chơi dân gian kết hợp hướng dẫn làm đồ thủ công.</li>
+                                <li>Giao lưu văn nghệ, biểu diễn các vở kịch mang tính giáo dục.</li>
+                                <li>Tiến hành tổng dọn vệ sinh, thu gom rác thải toàn bộ khuôn viên.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <!-- BỔ SUNG CHI TIẾT THEO PDF -->
+                            <ul>
+                                <li>Cấp Giấy xác nhận tham gia (đạt 01 ngày tình nguyện, hỗ trợ xét "Sinh viên 5 tốt").</li>
+                                <li>Ghi nhận <strong>01 ngày công tác xã hội</strong> theo Quy định.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> (HK II năm 2026-2027) đối với Sinh viên tham gia.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> đối với thành viên Ban Tổ chức.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1FzxcjmxalBnQbAuYwrwo98uT1lGqCJm4LdCxIjF1Xr5DmA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hoạt động 2: Thắp Lửa -->
+    <section class="activity-section bg-pastel-blue" id="thap-lua">
+        <div class="container split-act reverse">
+            <div class="act-visual reveal-slide-left">
+                <img src="images/thamgianhe2.png" alt="Thắp Lửa" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-right">
+                <h3 class="font-cute text-pink">Hoạt động 2</h3>
+                <h2 class="font-title text-navy act-name">Thắp Lửa (Mặt trận TP)</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>Chưa công bố</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Quán cơm 2k, BV Chợ Rẫy...</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>45 TNV (10 BTC + 35 TNV)</span></div>
+                </div>
+
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <!-- BỔ SUNG CHI TIẾT THEO PDF -->
+                            <ul>
+                                <li>Đồng hành hỗ trợ tại Quán cơm từ thiện 2000 đồng (Quận 10).</li>
+                                <li>Phụ giúp tại Bếp yêu thương Bệnh viện Chợ Rẫy.</li>
+                                <li>Hỗ trợ Nhà lưu trú và bếp cơm 0 đồng Đắc Nhân Tâm (TP. Thủ Đức).</li>
+                                <li>Tổ chức thăm viếng và dọn dẹp tại Nghĩa trang.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <!-- BỔ SUNG CHI TIẾT THEO PDF -->
+                            <ul>
+                                <li>Cấp Giấy xác nhận tham gia (đạt 01 ngày tình nguyện, hỗ trợ xét "Sinh viên 5 tốt").</li>
+                                <li>Ghi nhận <strong>01 ngày công tác xã hội</strong> theo Quy định.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> (HK II năm 2026-2027) đối với Sinh viên tham gia.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> đối với thành viên Ban Tổ chức.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1FzxcjmxalBnQbAuYwrwo98uT1lGqCJm4LdCxIjF1Xr5DmA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hoạt động 3: Đón Ban Mai -->
+    <section class="activity-section bg-pastel-green" id="don-ban-mai">
+        <div class="container split-act">
+            <div class="act-visual reveal-slide-right">
+                <img src="images/thamgianhe.png" alt="Đón Ban Mai" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-left">
+                <h3 class="font-cute text-navy">Hoạt động 3</h3>
+                <h2 class="font-title text-yellow-dark act-name">Đón Ban Mai (Mặt trận Tỉnh)</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>05/12 - 06/12/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>TH Lam Sơn, Định Quán, Đồng Nai</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>120 TNV (40 BTC + 80 TNV)</span></div>
+                </div>
+
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <!-- BỔ SUNG CHI TIẾT THEO PDF -->
+                            <ul>
+                                <li>Dâng hương tại Tượng Đài Chiến Thắng La Ngà.</li>
+                                <li><strong>Đội Truyền Thông:</strong> Phụ trách hình ảnh, quay dựng và quảng bá chiến dịch.</li>
+                                <li><strong>Đội Ấm trong EM:</strong> Thực hiện công trình "Hành Lang Thông Điệp", "Trạm Sách Ước Mơ".</li>
+                                <li><strong>Đội Sắc Ca:</strong> Biểu diễn văn nghệ, kịch và vận hành cuộc thi "Nắng Thông Thái".</li>
+                                <li><strong>Đội Em Mơ:</strong> Thiết kế mảng tường "Sắc Màu Tương Lai", treo chậu cây tái chế.</li>
+                                <li><strong>Đội Ánh Dương:</strong> Tái chế thùng rác, cải tạo "Sân chơi cho EM".</li>
+                                <li>Trao tặng 250 phần quà học tập, 10 phần học bổng và 05 phần quà cho hộ khó khăn.</li>
+                                <li>Tổ chức không gian trải nghiệm chạy trạm và giao lưu lửa trại.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <!-- BỔ SUNG CHI TIẾT THEO PDF -->
+                            <ul>
+                                <li>Cấp Giấy chứng nhận tham gia (đạt 02 ngày tình nguyện, hỗ trợ xét "Sinh viên 5 tốt").</li>
+                                <li>Ghi nhận <strong>tối đa 02 ngày công tác xã hội</strong> theo Quy định.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> (HK II năm 2026-2027) đối với Sinh viên tham gia.</li>
+                                <li>Ghi nhận <strong>05 điểm rèn luyện</strong> đối với thành viên Ban Tổ chức.</li>
+                                <li><em style="color:#FF6B6B;">* TNV tham gia dưới 90% sẽ được xét duyệt lại quyền lợi theo mức độ đóng góp.</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1FzxcjmxalBnQbAuYwrwo98uT1lGqCJm4LdCxIjF1Xr5DmA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. SECTION: NHỮNG NGƯỜI GIEO NẮNG & BAN ĐIỀU HÀNH (GIỮ NGUYÊN)
+    =========================================== -->
+    <section id="team-roster" class="section-team-magic" style="background-image: url('images/background1.png');">
+        <div class="team-glass-overlay">
+            <div class="container text-center position-relative z-10">
+                <div class="section-header reveal-up">
+                    <h2 class="font-title text-navy title-glow">Những Người Gieo Nắng</h2>
+                    <p class="font-main text-dark subtitle-glow">Gương mặt đứng sau hành trình mang Sắc Ban Mai</p>
+                </div>
+
+                <div class="bch-wrapper reveal-up delay-1">
+                    <h3 class="board-title font-cute text-pink">Ban Chỉ Huy Chiến Dịch</h3>
+                    <div class="bch-pyramid">
+                        <div class="tier-1">
+                            <div class="elite-card leader">
+                                <div class="elite-avatar"><img src="https://placehold.co/150x150/FFB703/FFF?text=Ảnh" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Lê Danh Hoàng Giang</h4>
+                                <span class="role-badge">Chỉ huy Trưởng</span>
+                            </div>
+                        </div>
+                        <div class="tier-2">
+                            <div class="elite-card">
+                                <div class="elite-avatar"><img src="NHANSU/BTT/phamminhthu.jpg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Phạm Minh Thư</h4>
+                                <span class="role-badge">Chỉ huy Phó</span>
+                            </div>
+                            <div class="elite-card">
+                                <div class="elite-avatar"><img src="NHANSU/BTT/huynhthuyquynh.jpg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Huỳnh Thúy Quỳnh</h4>
+                                <span class="role-badge">Chỉ huy Phó</span>
+                            </div>
+                        </div>
+                        <div class="tier-3">
+                            <div class="elite-card uv">
+                                <div class="elite-avatar"><img src="NHANSU/LEAD/buiquynhanh2.jpeg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Bùi Quỳnh Anh</h4>
+                                <span class="role-badge">LEAD</span>
+                            </div>
+                            <div class="elite-card uv">
+                                <div class="elite-avatar"><img src="NHANSU/LEAD/danthu2.jpeg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Nguyễn Thuỵ Đan Thư</h4>
+                                <span class="role-badge">LEAD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="squads-wrapper reveal-up delay-2">
+                    <h3 class="board-title font-cute text-navy mt-50">Ban Điều Hành Đội Hình</h3>
+                    <div class="squads-magic-grid">
+                        
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-gift text-yellow"></i><h4 class="font-title text-navy">HĐ 1: Trao Ấm</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/004AAD/FFF?text=Ảnh"></div><h5 class="font-title text-navy">Bình Minh</h5><span class="squad-role">Phụ trách chính</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/004AAD/FFF?text=Ảnh"></div><h5 class="font-title text-navy">Quỳnh Như</h5><span class="squad-role">Phụ trách phó</span></div>
+                            </div>
+                        </div>
+
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-fire text-yellow"></i><h4 class="font-title text-pink">HĐ 2: Thắp Lửa</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/BEP/GHung.jpg"></div><h5 class="font-title text-navy">Gia Hưng</h5><span class="squad-role">Đồng Phụ trách</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/BEP/ThanhDat.png"></div><h5 class="font-title text-navy">Thành Đạt</h5><span class="squad-role">Đồng Phụ trách</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/FF6B6B/FFF?text=Ảnh"></div><h5 class="font-title text-navy">Tên</h5><span class="squad-role">Đồng Phụ trách</span></div>
+                            </div>
+                        </div>
+
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-music text-yellow"></i><h4 class="font-title text-pink">Đội Sắc Ca</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/SacCa/tfet2.jpeg"></div><h5 class="font-title text-navy">Thành Phát</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/SacCa/baothy.JPG"></div><h5 class="font-title text-navy">Bảo Thy</h5><span class="squad-role">Đội phó</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/FF6B6B/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
+
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-cloud text-yellow"></i><h4 class="font-title text-pink">Đội Ánh Dương</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/anhduong/dieuchau.jpg"></div><h5 class="font-title text-navy">Diệu Châu</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/anhduong/hoanglam.JPG"></div><h5 class="font-title text-navy">Hoàng Lâm</h5><span class="squad-role">Đội phó</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/FF6B6B/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
+
+                        <div class="squad-glass-card">
+                            <div class="squad-header"><i class="fa-solid fa-camera text-yellow"></i><h4 class="font-title text-navy">Đội Truyền Thông</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/TruyenThong/tandet.jpeg"></div><h5 class="font-title text-navy">Tấn Đạt</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/004AAD/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
+
+                        <div class="squad-glass-card">
+                            <div class="squad-header"><i class="fa-solid fa-fire text-yellow"></i><h4 class="font-title text-navy">Đội Ấm trong EM</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/AmtrongEm/boni2.jpeg"></div><h5 class="font-title text-navy">Bảo Nghi</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/004AAD/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
+
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-sun text-yellow"></i><h4 class="font-title text-pink">Đội Em Mơ</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/EmMo/cattuong.jpg"></div><h5 class="font-title text-navy">Cát Tường</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/EmMo/qtram .jpg"></div><h5 class="font-title text-navy">Quỳnh Trâm</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER (GIỮ NGUYÊN)
+    =========================================== -->
+    <footer id="footer" class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-box reveal-up">
+                    <h3 class="font-title text-yellow footer-title">☀️ Thông Tin Liên Hệ</h3>
+                    <ul class="contact-list font-main text-white">
+                        <li><i class="fa-solid fa-location-dot"></i> LCH Khoa Toán Kinh tế - UEL</li>
+                        <li><i class="fa-solid fa-envelope"></i> lchtoankinhte@st.uel.edu.vn</li>
+                        <li><i class="fa-brands fa-facebook"></i> LCH Khoa Toán Kinh Tế UEL</li>
+                        <li><i class="fa-brands fa-instagram"></i> _lchtktuel_</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright-text font-main">
+                &copy; 2026 Chiến dịch tình nguyện Gieo Nắng. Designed by _irtdn_ aka Nguyen Duc Tri.
+            </div>
+        </div>
+    </footer>
+
+    <script src="season5.js"></script>
+</body>
+</html>
