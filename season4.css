@@ -78,76 +78,141 @@ header.scrolled { background: rgba(7, 21, 32, 0.95); backdrop-filter: blur(10px)
 .menu-toggle { display: none; cursor: pointer; font-size: 24px; color: #FFF; }
 
 /* =========================================
-   3. HERO SECTION - MAGICAL FOREST
+   3. HERO SECTION - TĨNH (AUTO ĐỔI 16:9 và 9:16)
 ========================================= */
-#hero-magic {
-    height: 100vh; width: 100%; position: relative;
-    overflow: hidden; background: #000;
+#hero-static {
+    height: 100vh; 
+    width: 100vw; 
+    max-width: 100%;
+    position: relative;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden;
+
+    /* ẢNH NỀN MẶC ĐỊNH CHO MÁY TÍNH (16:9) */
+    background-image: url('element-gn4/bg-gn4-ngang.jpg'); /* Thay tên file ảnh ngang của bạn vào đây */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.layer-bg { position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; object-fit: cover; z-index: 1; filter: brightness(0.7); }
-
-.layer-glow, .layer-light, .layer-particles {
-    position: absolute;
-    mix-blend-mode: screen; 
-    z-index: 2;
-    pointer-events: none;
+/* Lớp phủ đen làm nổi bật tiêu đề */
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Chỉnh số 0.3 (độ mờ 30%) tùy ý bạn */
+    z-index: 1;
 }
 
-.layer-glow { top: 15%; left: 50%; transform: translate(-50%, -30%); width: 400px; opacity: 0.9; }
-.pulse-anim { animation: pulse 3s infinite alternate ease-in-out; }
-@keyframes pulse { 0% { opacity: 0.6; transform: translate(-50%, -30%) scale(0.9); } 100% { opacity: 1; transform: translate(-50%, -30%) scale(1.1); filter: brightness(1.5); } }
-
-.light-1 { top: 20%; left: 10%; width: 800px; transform: rotate(15deg); opacity: 0.7;}
-.light-2 { bottom: 10%; right: 10%; width: 600px; transform: rotate(-20deg); opacity: 0.6;}
-.light-3 { top: 7%; left: 3%; width: 300px; animation: flutter 5s infinite ease-in-out alternate; opacity: 0.8;}
-.light-5 { top: 70%; right: 3%; width: 300px; animation: flutter 5s infinite ease-in-out alternate; opacity: 0.8;}
-
-.layer-particles { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; z-index: 3;}
-
-.layer-char { position: absolute; z-index: 4; filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5)); transition: 0.3s; }
-.char-boy { top: 50%; left: 5%; width: 300px; }
-.char-girl { top: 35%; left: 25%; width: 320px; }
-
-.layer-butterfly { position: absolute; z-index: 5; mix-blend-mode: screen; animation: flutter 5s infinite ease-in-out alternate; }
-.bf-1 { top: 25%; left: 30%; width: 80px; }
-.bf-2 { top: 35%; right: 30%; width: 60px; animation-delay: 1s;}
-@keyframes flutter { 0% { transform: translateY(0) rotate(-10deg); } 100% { transform: translateY(-30px) rotate(20deg); } }
-
-.hero-content {
-    position: absolute; top: 50%; left: 45%; transform: translate(-50%, -50%);
-    text-align: center; z-index: 10; width: 90%; max-width: 800px;
-    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 30px 50px rgba(0,0,0,0.5); transition: 0.3s;
+/* Tiêu đề PNG lơ lửng - ĐÃ GHIM CỐ ĐỊNH Ở GIỮA, GẦN SÁT TRÊN */
+.hero-title-wrapper {
+    position: absolute; 
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%); /* Bí quyết: Căn giữa theo trục ngang tuyệt đối */
+    
+    /* >>> CHÚ THÍCH SỬA 1: BẠN CHỈNH VỊ TRÍ CAO/THẤP TRÊN MÁY TÍNH Ở ĐÂY <<< */
+    /* Số càng nhỏ thì chữ càng sát mép trên (Ví dụ: 10%, 15%, 20%) */
+    top: 15%; 
+    
+    text-align: center;
 }
-.season-text { font-family: 'Quicksand'; font-size: clamp(14px, 2vw, 18px); color: var(--gold-glow); letter-spacing: 5px; margin-bottom: 10px; }
-.magic-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(45px, 8vw, 100px); color: #FFF; line-height: 1; text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.6); margin-bottom: 20px; }
-.magic-quote { font-size: clamp(16px, 2.5vw, 20px); font-weight: 600; font-style: italic; color: #EEE;}
+.hero-title-wrapper img {
+    width: clamp(320px, 45vw, 750px);
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6)); /* Đổ bóng đen cứng cáp cho chữ */
+}
 
-.scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 24px; color: rgba(255,255,255,0.6); animation: bounce 2s infinite; z-index: 10;}
-@keyframes bounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 15px); } }
+/* Hiệu ứng lơ lửng cực mượt */
+.anim-float-title { animation: floatTitle 4s ease-in-out infinite alternate; }
+@keyframes floatTitle { 
+    0% { transform: translateY(0); } 
+    100% { transform: translateY(-20px); } 
+}
+
+/* Nút mũi tên cuộn */
+.scroll-magic-hint { 
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); 
+    z-index: 20; text-align: center; 
+}
+.scroll-magic-hint i { font-size: clamp(24px, 3vw, 35px); animation: arrowBounce 1.5s infinite; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));}
+@keyframes arrowBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
 /* =========================================
-   4. HOẠT ĐỘNG 1: DẤU CHÂN
+   THIẾT LẬP RESPONSIVE CHO ĐIỆN THOẠI
 ========================================= */
-.section-header { text-align: center; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto;}
-.act-title { font-size: clamp(28px, 4vw, 35px); margin-bottom: 15px; }
-.glow-text { color: var(--gold-glow); text-shadow: 0 0 15px rgba(255,215,0,0.5); font-family: 'Cormorant Garamond', serif; font-size: clamp(35px, 5vw, 50px); font-style: italic;}
-.glow-dark { color: #FF8C00; text-shadow: 0 5px 10px rgba(255,140,0,0.3); font-family: 'Cormorant Garamond', serif; font-size: clamp(35px, 5vw, 50px); font-style: italic;}
+@media (max-width: 768px) {
+    #hero-static {
+        /* ĐỔI SANG ẢNH NỀN DỌC CHO ĐIỆN THOẠI (9:16) */
+        background-image: url('element-gn4/bg-gn4-doc.png'); /* Thay tên file ảnh dọc của bạn vào đây */
+    }
+    
+    .hero-title-wrapper {
+        /* >>> CHÚ THÍCH SỬA 2: BẠN CHỈNH VỊ TRÍ CAO/THẤP TRÊN ĐIỆN THOẠI Ở ĐÂY <<< */
+        /* Trên đt thường cần khoảng cách rộng hơn một chút để không đụng Navbar */
+        top: 18%; 
+    }
 
-.carousel-9-frames {
-    display: flex; gap: 20px; overflow-x: auto; padding: 20px 0 40px 0;
-    scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    .hero-title-wrapper img {
+        width: 400px; /* Khóa độ rộng ảnh tiêu đề trên điện thoại để không bị tràn viền */
+    }
 }
-.carousel-9-frames::-webkit-scrollbar { height: 8px; }
-.carousel-9-frames::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 10px; margin: 0 20px;}
-.carousel-9-frames::-webkit-scrollbar-thumb { background: var(--gold-glow); border-radius: 10px; }
 
-.c-frame { flex: 0 0 350px; height: 450px; scroll-snap-align: center; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: 0.4s;}
-.c-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%); transition: 0.4s; }
-.c-frame:hover { transform: translateY(-10px); }
-.c-frame:hover img { filter: grayscale(0); transform: scale(1.05); }
+/* =========================================
+   4. HOẠT ĐỘNG 1: DẤU CHÂN (POSTER DỌC 9:16)
+========================================= */
+.section-header { 
+    text-align: center; 
+    margin-bottom: 50px; 
+    max-width: 800px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+.act-title { 
+    font-size: clamp(28px, 4vw, 35px); 
+    margin-bottom: 15px; 
+}
+.glow-text { 
+    color: var(--gold-glow); 
+    text-shadow: 0 0 15px rgba(255,215,0,0.5); 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: clamp(35px, 5vw, 50px); 
+    font-style: italic;
+}
+.glow-dark { 
+    color: var(--orange-glow); 
+    text-shadow: 0 5px 10px rgba(255,140,0,0.3); 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: clamp(35px, 5vw, 50px); 
+    font-style: italic;
+}
+
+/* --- CSS CHO POSTER DỌC 9:16 --- */
+.single-poster-wrapper {
+    width: 100%;
+    /* Giới hạn độ rộng để ảnh dọc không bị khổng lồ lấp hết màn hình PC */
+    max-width: 450px; 
+    margin: 0 auto 40px auto; 
+    padding: 0 15px; 
+    position: relative;
+}
+
+.single-poster-img {
+    width: 100%;
+    height: auto;
+    /* Ép hiển thị chuẩn tỷ lệ 9:16 (nếu ảnh gốc của bạn chưa chuẩn 100%) */
+    aspect-ratio: 9 / 16; 
+    object-fit: cover; 
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hiệu ứng rê chuột: Poster hơi bay lên và hắt sáng vàng nhẹ */
+.single-poster-wrapper:hover .single-poster-img {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 40px rgba(255, 215, 0, 0.2); 
+}
 
 /* =========================================
    5. HOẠT ĐỘNG 2: MẦM XANH
