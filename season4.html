@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gieo Nắng IV - Ấm Trong EM | Khu Rừng Phép Thuật</title>
+    <title>Gieo nắng IV - Ấm Trong EM | Khu Rừng Phép Thuật</title>
 
     <link rel="icon" type="image/png" href="logo/logo-gn.png">
     
@@ -26,7 +26,7 @@
                 </div>
                 <div class="logo-text">
                     <span class="logo-org text-white">LCH TKT</span>
-                    <span class="logo-campaign">Gieo Nắng</span>
+                    <span class="logo-campaign">Gieo nắng</span>
                 </div>
             </a>
         </div>
@@ -38,13 +38,13 @@
             <li class="dropdown">
                 <a href="#" class="active">Hành trình <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="season3.html">Gieo Nắng III - Ánh Dương</a></li>
-                    <li><a href="season4.html" class="highlight-s4">Gieo Nắng IV - Ấm trong EM</a></li>
-                    <li><a href="season5.html">Gieo Nắng V - Sắc Ban Mai</a></li>
+                    <li><a href="season3.html">Gieo nắng III - Ánh Dương</a></li>
+                    <li><a href="season4.html" class="highlight-s4">Gieo nắng IV - Ấm trong EM</a></li>
+                    <li><a href="season5.html">Gieo nắng V - Sắc Ban Mai</a></li>
                 </ul>
             </li>
                 <!-- 1. NÚT BẢN ĐỒ HÀNH TRÌNH (MỚI) -->
-    <li><a href="ĐIỀN_LINK_CỦA_BẠN_VÀO_ĐÂY" target="_blank">Bản đồ hành trình</a></li>
+    <li><a href="https://www.google.com/maps/d/edit?mid=1n8DgQKTQwTH-w2MuduiDobbnkL9qidE&usp=sharing" target="_blank">Bản đồ hành trình</a></li>
 
             <li class="dropdown">
                 <a href="#">Hoạt động Mùa V <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
@@ -61,40 +61,24 @@
     </header>
 
     <!-- =========================================
-         1. HERO SECTION: KHU RỪNG PHÉP THUẬT
+         1. HERO SECTION: BACKGROUND TĨNH & TIÊU ĐỀ
     ========================================= -->
-    <section id="hero-magic">
-        <!-- Lớp 1: Nền rừng sâu (Đã cập nhật thư mục element-gn4) -->
-        <img src="element-gn4/background1-full.jpg" alt="Rừng đêm" class="layer-bg parallax-layer" data-speed="0.02">
+    <!-- CSS sẽ xử lý việc tráo đổi ảnh 16:9 và 9:16 cho ID #hero-static -->
+    <section id="hero-static">
         
-        <!-- Lớp 2: Quả cầu sáng ở cửa cây -->
-        <img src="element-gn4/quacau.png" alt="Phát sáng" class="layer-glow pulse-anim">
-        
-        <!-- Lớp 3: Dòng chảy ma thuật (Vệt sáng) -->
-        <img src="element-gn4/vetsang1-removebg-preview.png" class="layer-light light-1 parallax-layer" data-speed="0.05">
-        <img src="element-gn4/vetsang2-removebg-preview.png" class="layer-light light-2 parallax-layer" data-speed="-0.04">
-        <img src="element-gn4/vetsang6.png" class="layer-light light-3">
-        <img src="element-gn4/vetsang5.png" class="layer-light light-5">
-        
-        <!-- Lớp 4: Cánh hoa & Bụi sáng bay -->
-        <img src="element-gn4/chamsang.png" class="layer-particles float-slow">
-        
-        <!-- Lớp 5: Nhân vật bay lơ lửng -->
-        <img src="element-gn4/boy.png" alt="Cậu bé" class="layer-char char-boy float-fast parallax-layer" data-speed="0.08">
-        <img src="element-gn4/girl.png" alt="Cô bé" class="layer-char char-girl float-mid parallax-layer" data-speed="0.06">
-        
-        <!-- Lớp 6: Bướm phát sáng -->
-        <img src="element-gn4/butterfly.png" class="layer-butterfly bf-1">
-        <img src="element-gn4/butterfly2.png" class="layer-butterfly bf-2">
+        <!-- Lớp phủ tối mờ nhẹ (Overlay) để chữ tieude.png nổi bần bật, bạn có thể chỉnh độ đậm nhạt ở CSS -->
+        <div class="hero-overlay"></div>
 
-        <!-- Lớp 7: Nội dung Tiêu điểm -->
-        <div class="hero-content reveal fade-up">
-            <h3 class="season-text">MÙA IV - NĂM 2025</h3>
-            <h1 class="magic-title">ẤM TRONG EM</h1>
-            <p class="magic-quote">"Bước chân gieo mầm xanh, lan tỏa ánh sáng đến mọi miền."</p>
+        <!-- Element Tiêu đề duy nhất -->
+        <div class="hero-title-wrapper">
+            <!-- Đổi tên file tieude.png cho đúng với máy bạn -->
+            <img src="element-gn4/HEADING.png" alt="Ấm Trong Em" class="anim-float-title">
         </div>
 
-        <div class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+        <!-- Mũi tên chỉ xuống -->
+        <div class="scroll-magic-hint">
+            <i class="fa-solid fa-angles-down text-white anim-bounce"></i>
+        </div>
     </section>
 
     <!-- =========================================
@@ -107,15 +91,12 @@
                 <p>Những bước chân không mỏi mệt. Các bạn sinh viên đã quy đổi kilometer chạy bộ thành quỹ tình nguyện, chuẩn bị cho hành trình mang yêu thương đi xa.</p>
             </div>
 
-            <!-- Băng chuyền cuộn ngang mượt mà chứa 9 ảnh -->
-            <div class="carousel-9-frames reveal fade-up delay-1">
-                <div class="c-frame"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600" alt="Chạy bộ"></div>
-                <div class="c-frame"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600" alt="Chạy bộ"></div>
-                <div class="c-frame"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=600" alt="Chạy bộ"></div>
-                <div class="c-frame"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=600" alt="Chạy bộ"></div>
-                <div class="c-frame"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=80&w=600" alt="Chạy bộ"></div>
-            </div>
-        </div>
+                <!-- KHUNG POSTER NGANG MỚI -->
+    <div class="single-poster-wrapper">
+        <!-- Đổi đường dẫn ảnh của bạn vào src="" -->
+        <img src="gn4/hd1.jpg" alt="Poster Dấu chân tình nguyện" class="single-poster-img">
+    </div>
+</div>
     </section>
 
     <!-- =========================================
@@ -150,7 +131,7 @@
         <div class="container" style="padding-bottom: 50px;">
             <div class="section-header reveal fade-up">
                 <h2 class="act-title">Hoạt động 3: <span class="glow-text">LAN TỎA</span></h2>
-                <p>Điểm rơi cảm xúc tại phường Cao Lãnh, Đồng Tháp. 105 tình nguyện viên tự hào khoác lên mình màu áo xanh, cống hiến hết mình tại 5 đội hình chuyên biệt.</p>
+                <p>Điểm rơi cảm xúc tại phường Cao Lãnh, Đồng Tháp. 105 tình nguyện viên tự hào khoác lên mình màu áo Gieo nắng, cống hiến hết mình tại 5 đội hình chuyên biệt.</p>
             </div>
         </div>
 
