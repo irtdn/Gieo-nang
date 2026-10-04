@@ -1,398 +1,489 @@
-/* =========================================
-   1. VARIABLES & SETUP
-========================================= */
-:root {
-    --sky-blue: #87CEFA;
-    --navy-blue: #004AAD;
-    --yellow: #FFD700;
-    --yellow-dark: #FFB703;
-    --pink: #FF6B6B;
-    --white: #FFFFFF;
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gieo nắng V - Sắc Ban Mai | Teaser Campaign</title>
+
+    <link rel="icon" type="image/png" href="logo/logo-gn.png">
     
-    --bg-dreamy: #E1F2FF;
-    --bg-paper: #FDFBF7;
-    
-    /* Màu Pastel phân cách các Section */
-    --bg-run: #FFF9C4;
-    --bg-ws: #FFE5D0;
-    --bg-act1: #FFE4E1;
-    --bg-act2: #E1F2FF;
-    --bg-act3: #D4F1F4;
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="season5.css">
+</head>
+<body class="theme-ghibli">
 
-    --text-dark: #333333;
-    --shadow-soft: 0 10px 30px rgba(0, 74, 173, 0.08);
-    --shadow-magical: 0 15px 35px rgba(0,0,0,0.1);
-}
+    <!-- ==========================================
+         NAVBAR & HERO SECTION (GIỮ NGUYÊN)
+    =========================================== -->
+    <header id="navbar">
+        <div class="logo">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-images">
+                    <img src="images/logo-lch.png" alt="Logo LCH" class="logo-img org-logo">
+                    <img src="logo/logo-gn.png" alt="Logo Gieo Nắng" class="logo-img camp-logo">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-org text-navy">LCH TKT</span>
+                    <span class="logo-campaign text-glow-sun">Gieo nắng</span>
+                </div>
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars text-navy"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="dropdown">
+                <a href="#" class="active">Hành trình <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="season3.html">Gieo nắng III - Ánh Dương</a></li>
+                    <li><a href="season4.html">Gieo nắng IV - Ấm trong EM</a></li>
+                    <li><a href="season5.html" class="highlight-s5">Gieo nắng V - Sắc Ban Mai</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.google.com/maps/d/edit?mid=1n8DgQKTQwTH-w2MuduiDobbnkL9qidE&usp=sharing" target="_blank">Bản đồ hành trình</a></li>
+            <li class="dropdown">
+                <a href="#">Hoạt động Mùa V <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="season5.html#khoi-sac">Giải Chạy "Khởi Sắc"</a></li>
+                    <li><a href="season5.html#gom-nang">Workshop "Gom Nắng"</a></li>
+                    <li><a href="season5.html#trao-am">Hoạt động 1 "Trao Ấm"</a></li>
+                    <li><a href="season5.html#thap-lua">Hoạt động 2 "Thắp Lửa"</a></li>
+                    <li><a href="season5.html#don-ban-mai">Hoạt động 3 "Đón Ban Mai"</a></li>
+                </ul>
+            </li>
+            <li><a href="#footer">Liên hệ</a></li>
+        </ul>
+    </header>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body.theme-ghibli { font-family: 'Nunito', sans-serif; color: var(--text-dark); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+<!-- ==========================================
+         1. HERO SECTION - VIDEO BACKGROUND & IMAGE TITLES
+    =========================================== -->
+    <section id="hero-video-scene">
+        
+        <!-- VIDEO MÁY TÍNH (16:9) -->
+        <video autoplay loop muted playsinline class="bg-video desktop-video">
+            <source src="element-gn5/vid-ngang-gn5.mp4" type="video/mp4">
+        </video>
 
-/* Font Setup */
-.font-title { font-family: 'Quicksand', sans-serif; font-weight: 800; }
-.font-cute { font-family: 'Baloo 2', cursive; }
-.font-main { font-family: 'Nunito', sans-serif; }
+        <!-- VIDEO ĐIỆN THOẠI (9:16) -->
+        <video autoplay loop muted playsinline class="bg-video mobile-video">
+            <source src="element-gn5/vid-doc-gn5.mp4" type="video/mp4">
+        </video>
 
-/* Utility Classes */
-.text-navy { color: var(--navy-blue) !important; }
-.text-dark { color: var(--text-dark) !important; }
-.text-white { color: var(--white) !important; }
-.text-pink { color: var(--pink) !important; }
-.text-yellow { color: var(--yellow) !important; }
-.text-yellow-dark { color: var(--yellow-dark) !important; }
-.text-glow-sun { color: var(--yellow); text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); }
+        <!-- Lớp phủ tối nhẹ để làm nổi bật hình ảnh chữ -->
+        <div class="video-overlay"></div>
 
-a { text-decoration: none; }
-ul { list-style: none; }
+        <!-- CÁC ELEMENT BẰNG HÌNH ẢNH LƠ LỬNG -->
+        <div class="hero-content">
+            <div class="title-group anim-float-title">
+                
+                <!-- HÌNH 2: Hình chữ Chiến dịch tình nguyện -->
+                <img src="element-gn5/title-gn5.png" alt="Chiến dịch Tình nguyện" class="hero-element-2">
+                
+                <!-- HÌNH 3: Hình chữ Sắc Ban Mai -->
+                <img src="element-gn5/tieude.png" alt="Sắc Ban Mai" class="hero-element-3">
+                
+            </div>
+        </div>
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
-.text-center { text-align: center; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.mt-50 { margin-top: 50px; }
-.position-relative { position: relative; }
-.z-10 { z-index: 10; }
+        <div class="scroll-magic-hint">
+            <span class="font-cute text-white">Bắt đầu hành trình</span>
+            <i class="fa-solid fa-angles-down text-white anim-bounce"></i>
+        </div>
+    </section>
 
-/* =========================================
-   2. NAVBAR
-========================================= */
-header { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; z-index: 1000; transition: 0.4s; }
-header.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: var(--shadow-soft); padding: 15px 50px; }
+    <div id="letterModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fa-solid fa-xmark"></i></span>
+            <img src="images/thungo.png" alt="Thư ngỏ Gieo Nắng V" class="letter-img">
+        </div>
+    </div>
 
-.logo-wrapper { display: flex; align-items: center; gap: 15px; cursor: pointer;}
-.logo-images { position: relative; width: 70px; height: 45px; }
-.logo-img { position: absolute; width: 45px; height: 45px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15); object-fit: cover;}
-.org-logo { left: 0; z-index: 2; transform: rotate(-10deg); }
-.camp-logo { left: 25px; z-index: 1; transform: rotate(10deg); }
+    <section class="donate-banner">
+        <div class="container text-center reveal-up">
+            <h2 class="font-cute text-navy">Ủng hộ chúng mình kiến tạo Sắc Ban Mai nhé! 🌻</h2>
+            <button id="openLetterBtn" class="btn-donate-pulse font-title"><i class="fa-solid fa-envelope-open-text"></i> Xem Thư Ngỏ & Góp Nắng</button>
+        </div>
+    </section>
 
-.logo-text { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
-.logo-org { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 900; color: var(--navy-blue); letter-spacing: 2px; text-shadow: 0 1px 2px rgba(255,255,255,0.8);}
-.logo-campaign { font-family: 'Baloo 2', cursive; font-size: 26px; font-weight: 800; transform: translateY(-2px) rotate(-2deg); text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0 4px 8px rgba(0,0,0,0.2);}
+    <!-- ==========================================
+         CỤM GÂY QUỸ (GIỮ NGUYÊN)
+    =========================================== -->
+    <section class="activity-section bg-pastel-yellow" id="khoi-sac">
+        <div class="container split-act">
+            <div class="act-visual reveal-slide-right">
+                <img src="images/gayquynhe.png" alt="Khởi Sắc" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-left">
+                <h3 class="font-cute text-pink">Hình thức Gây quỹ 1</h3>
+                <h2 class="font-title text-navy act-name">Giải Chạy "Khởi Sắc"</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>05/10 - 15/11/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Trực tuyến (Sports Tracker)</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>Sinh viên TP.HCM</span></div>
+                    <div class="info-item"><i class="fa-solid fa-person-running"></i> <span>Mức đăng ký: 15-25km</span></div>
+                </div>
 
-header.scrolled .logo-org { text-shadow: none; }
-header.scrolled .logo-campaign { text-shadow: none; transform: translateY(-2px) rotate(0); }
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Chia sẻ bài viết phát động trên mạng xã hội kèm Hashtag.</li>
+                                <li>Hoàn thành số KM tương ứng với mức đóng góp gây quỹ.</li>
+                                <li>15km tương ứng 39.000 VNĐ.<li>
+                                <li>20km tương ứng 29.000 VNĐ.<li>
+                                <li>25km tương ứng 19.000 VNĐ.<li>
+                                <li>Gửi minh chứng thông qua biểu mẫu được đăng trên fanpage chính thức của Liên Chi hội trên Facebook.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Được cấp Giấy chứng nhận tham gia, đạt <strong>tối đa 01 ngày tình nguyện</strong> tương đương 1 ngày công tác xã hội (Hỗ trợ xét mục <strong>"Thể lực tốt"</strong>) đối với Sinh viên tham gia.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSergj9DWXGBuo2hDPYi8HDOWJUMTm1RLwcTAhIgGiT5NpnAVA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
 
-.nav-links { display: flex; gap: 30px; align-items: center; }
-.nav-links > li > a { font-weight: 700; font-family: 'Quicksand'; font-size: 16px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); transition: 0.3s; }
-header.scrolled .nav-links > li > a { color: var(--navy-blue); text-shadow: none; }
-.nav-links > li > a:hover { color: var(--yellow-dark); }
-.highlight-s5 { color: var(--yellow) !important; font-weight: 800 !important; }
+    <section class="activity-section bg-pastel-orange" id="gom-nang">
+        <div class="container split-act reverse">
+            <div class="act-visual reveal-slide-left">
+                <img src="images/gayquynhe.png" alt="Gom Nắng" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-right">
+                <h3 class="font-cute text-navy">Hình thức Gây quỹ 2</h3>
+                <h2 class="font-title text-pink act-name">Workshop "Gom Nắng"</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>14/10 - 16/10/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Trường ĐH Kinh tế - Luật</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>Sinh viên UEL</span></div>
+                </div>
 
-.dropdown { position: relative; }
-.dropdown-menu { position: absolute; top: 150%; left: 0; background: var(--white); min-width: 260px; box-shadow: var(--shadow-soft); border-radius: 15px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.3s; overflow: hidden; border: 1px solid #eee;}
-.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); top: 100%; }
-.dropdown-menu li a { display: block; padding: 15px 20px; font-weight: 600; color: var(--text-dark); border-bottom: 1px solid #f1f1f1; text-shadow: none !important;}
-.dropdown-menu li a:hover { background: var(--bg-dreamy); color: var(--navy-blue); padding-left: 25px; }
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Làm đồ thủ công (móc khóa, vòng tay) phát huy tính sáng tạo.</li>
+                                <li>Mức đóng góp gây quỹ từ 39.000 VNĐ.</li>
+                                <li>Tuân thủ an toàn, giữ gìn vệ sinh khu vực làm việc.</li>
+                                <li>Được cung cấp đầy đủ bộ nguyên vật liệu (hạt cườm, phôi móc khóa...) cùng các dụng cụ.</li>
 
-.menu-toggle { display: none; cursor: pointer; font-size: 24px; color: var(--white); }
-header.scrolled .menu-toggle i { color: var(--navy-blue); }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Ghi nhận tối đa <strong>03 điểm rèn luyện</strong> vào HK1 năm học 2026-2027 đối với Sinh viên tham gia.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScRStuOThCxnIAL86MnxKmAIvIQWkFy_ZmTKHxHhylOj61KnA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
 
-/* =========================================
-   3. HERO SECTION - VIDEO BACKGROUND
-========================================= */
-#hero-video-scene {
-    height: 100vh; width: 100vw; max-width: 100%; position: relative;
-    overflow: hidden; background: var(--navy-blue); 
-    display: flex; justify-content: center; align-items: center; text-align: center;
-}
+    <!-- ==========================================
+         CỤM CHIẾN DỊCH CHÍNH (ĐÃ BỔ SUNG CHI TIẾT TỪ KẾ HOẠCH)
+    =========================================== -->
 
-/* --- SETTING CHO VIDEO --- */
-.bg-video {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto;
-    object-fit: cover; /* Che kín toàn bộ màn hình */
-    z-index: 0;
-}
+    <!-- Hoạt động 1: Trao Ấm -->
+    <section class="activity-section bg-pastel-peach" id="trao-am">
+        <div class="container split-act">
+            <div class="act-visual reveal-slide-right">
+                <img src="images/thamgianhe.png" alt="Trao Ấm"  class="act-img">
+            </div>
+            <div class="act-info reveal-slide-left">
+                <h3 class="font-cute text-navy">Hoạt động 1</h3>
+                <h2 class="font-title text-pink act-name">Trao Ấm (Mặt trận TP)</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>08/11/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Làng trẻ em SOS Gò Vấp</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>35 TNV</span></div>
+                </div>
 
-/* Đổi Video theo thiết bị */
-.mobile-video { display: none; } 
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Kiểm tra và đóng gói quà tặng cẩn thận.</li>
+                                <li>Tổ chức giao lưu, trao tặng 70 phần quà dụng cụ học tập và 2 phần học bổng thiết thực cho các em nhỏ.</li>
+                                <li>Tổ chức không gian vẽ tranh và tô màu tự do phát huy tư duy sáng tạo.</li>
+                                <li>Tổ chức gian hàng trò chơi dân gian kết hợp hướng dẫn làm đồ thủ công.</li>
+                                <li>Giao lưu văn nghệ, biểu diễn các vở kịch mang tính giáo dục.</li>
+                                <li>Tiến hành tổng dọn vệ sinh, thu gom rác thải toàn bộ khuôn viên.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Được cấp Giấy chứng nhận tham gia, đạt <strong>tối đa 01 ngày tình nguyện</strong> tương đương 1 ngày công tác xã hội (Hỗ trợ xét mục <strong>"Tình nguyện tốt"</strong>) đối với Sinh viên tham gia.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> vào HK1 năm học 2026-2027 đối với Sinh viên tham gia.</li>
+                                <li><em style="color:#FF6B6B;">* TNV tham gia dưới 90% sẽ được xét duyệt lại quyền lợi theo mức độ đóng góp.</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-@media (max-width: 768px) {
-    .desktop-video { display: none; } 
-    .mobile-video { display: block; } 
-}
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1FzxcjmxalBnQbAuYwrwo98uT1lGqCJm4LdCxIjF1Xr5DmA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
 
-/* Lớp lót đen nhẹ giúp cụm chữ PNG nổi bần bật (Tùy chỉnh độ mờ ở số 0.3) */
-.video-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.1); 
-    z-index: 1;
-}
+    <!-- Hoạt động 2: Thắp Lửa -->
+    <section class="activity-section bg-pastel-blue" id="thap-lua">
+        <div class="container split-act reverse">
+            <div class="act-visual reveal-slide-left">
+                <img src="images/thamgianhe2.png" alt="Thắp Lửa" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-right">
+                <h3 class="font-cute text-pink">Hoạt động 2</h3>
+                <h2 class="font-title text-navy act-name">Thắp Lửa (Mặt trận TP)</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>03/12 - 04/12/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Quán cơm 2k, BV Chợ Rẫy...</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>35 TNV</span></div>
+                </div>
 
-/* --- CỤM TIÊU ĐỀ HÌNH ẢNH (3 ELEMENT) --- */
-.hero-content { 
-    position: absolute; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%;
-    z-index: 10; 
-    pointer-events: none; /* Tránh cản trở thao tác click vào video/menu */
-}
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Đồng hành hỗ trợ tại Quán cơm từ thiện 2000 đồng (Quận 10).</li>
+                                <li>Phụ giúp tại Bếp yêu thương Bệnh viện Chợ Rẫy, Bệnh viện Nhi Đồng 2, Bệnh viện Chấn Thương Chỉnh Hình, Bệnh viện Bệnh Nhiệt Đới.</li>
+                                <li>Hỗ trợ Nhà lưu trú và bếp cơm 0 đồng Đắc Nhân Tâm (TP. Thủ Đức).</li>
+                                <li>Phát những phần cơm đến các thân nhận, bệnh nhân tại Bệnh viện Ung Bướu TP.HCM cơ sở 2.<li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Được cấp Giấy chứng nhận tham gia, đạt <strong>tối đa 01 ngày tình nguyện</strong> tương đương 1 ngày công tác xã hội (Hỗ trợ xét mục <strong>"Tình nguyện tốt"</strong>) đối với Sinh viên tham gia.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> vào HK1 năm học 2026-2027 đối với Sinh viên tham gia.</li>
+                                <li><em style="color:#FF6B6B;">* TNV tham gia dưới 90% sẽ được xét duyệt lại quyền lợi theo mức độ đóng góp.</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-.title-group {
-    position: absolute;
-    
-    /* 1. CHỈNH VỊ TRÍ TỪ TRÊN TRẦN XUỐNG Ở ĐÂY (Càng nhỏ càng sát trên) */
-    /* Dùng vh (chữ V, chữ H) để tự tính theo chiều cao màn hình */
-    top: 18vh; 
-    
-    /* 2. CỤM LỆNH NÀY GIÚP LUÔN LUÔN NẰM CHÍNH GIỮA CHIỀU NGANG */
-    left: 50%;
-    transform: translateX(-50%);
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1FzxcjmxalBnQbAuYwrwo98uT1lGqCJm4LdCxIjF1Xr5DmA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
 
-/* ====================================================
-   TINH CHỈNH TỪNG HÌNH ẢNH (Sử dụng hàm clamp để tự co giãn)
-   Cấu trúc clamp(nhỏ nhất, độ co giãn, lớn nhất)
-==================================================== */
+    <!-- Hoạt động 3: Đón Ban Mai -->
+    <section class="activity-section bg-pastel-green" id="don-ban-mai">
+        <div class="container split-act">
+            <div class="act-visual reveal-slide-right">
+                <img src="images/thamgianhe.png" alt="Đón Ban Mai" class="act-img">
+            </div>
+            <div class="act-info reveal-slide-left">
+                <h3 class="font-cute text-navy">Hoạt động 3</h3>
+                <h2 class="font-title text-yellow-dark act-name">Đón Ban Mai (Mặt trận Tỉnh)</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item"><i class="fa-regular fa-calendar"></i> <span>05/12 - 06/12/2026</span></div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>TH Thanh Sơn, Định Quán, Đồng Nai</span></div>
+                    <div class="info-item"><i class="fa-solid fa-users"></i> <span>90 TNV</span></div>
+                </div>
 
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Nội dung hoạt động <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li><strong>Đội Truyền Thông:</strong> Phụ trách hình ảnh, quay dựng và quảng bá chiến dịch.</li>
+                                <li><strong>Đội Ấm trong EM:</strong> Thực hiện công trình "Hành Lang Thông Điệp", "Mầm xanh hy vọng".</li>
+                                <li><strong>Đội Sắc Ca:</strong> Biểu diễn văn nghệ, kịch và vận hành cuộc thi "Nắng Thông Thái", triển khai công trình "Trạm Sách Ước Mơ".</li>
+                                <li><strong>Đội Em Mơ:</strong> Thiết kế mảng tường "Sắc Màu Tương Lai", treo chậu cây tái chế.</li>
+                                <li><strong>Đội Ánh Dương:</strong> Tái chế thùng rác, triển khai công trình "Sân chơi cho EM".</li>
+                                <li>Treo cờ Tổ quốc dọc theo tuyến đường tại địa phương, thực hiện công trình “Tuyến Đường Cờ - Sắc Màu Tổ Quốc” góp phần giữ gìn, phát huy nét đẹp văn hóa truyền thống.</li>
+                                <li>Trao tặng 250 phần quà học tập, 10 phần học bổng và 05 phần quà cho hộ khó khăn.</li>
+                                <li>Tổ chức không gian trải nghiệm chạy trạm và giao lưu lửa trại.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header font-title text-navy">Quyền lợi tham gia <i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="accordion-content font-main">
+                            <ul>
+                                <li>Được cấp Giấy chứng nhận tham gia, đạt <strong>tối đa 02 ngày tình nguyện</strong> tương đương 1 ngày công tác xã hội (Hỗ trợ xét mục <strong>"Tình nguyện tốt"</strong>) đối với Sinh viên tham gia.</li>
+                                <li>Ghi nhận <strong>03 điểm rèn luyện</strong> vào HK1 năm học 2026-2027 đối với Sinh viên tham gia.</li>
+                                <li><em style="color:#FF6B6B;">* TNV tham gia dưới 90% sẽ được xét duyệt lại quyền lợi theo mức độ đóng góp.</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-/* Hình 2 (Ở giữa) */
-.hero-element-2 {
-    width: clamp(180px, 30vw, 450px); /* Chỉnh độ to/nhỏ của hình 2 */
-    margin-bottom: -8%; /* Chỉnh số âm này để kéo sát vào hình 3 bên dưới */
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); 
-}
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1FzxcjmxalBnQbAuYwrwo98uT1lGqCJm4LdCxIjF1Xr5DmA/viewform" target="_blank" class="btn-join font-title mt-20">Tham gia cùng tụi mình nhé <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
 
-/* Hình 3 (Dưới cùng) */
-.hero-element-3 {
-    width: clamp(280px, 45vw, 750px); /* Chỉnh độ to/nhỏ của hình 3 */
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6)); 
-}
+    <!-- ==========================================
+         4. SECTION: NHỮNG NGƯỜI GIEO NẮNG & BAN ĐIỀU HÀNH (GIỮ NGUYÊN)
+    =========================================== -->
+    <section id="team-roster" class="section-team-magic" style="background-image: url('images/background1.png');">
+        <div class="team-glass-overlay">
+            <div class="container text-center position-relative z-10">
+                <div class="section-header reveal-up">
+                    <h2 class="font-title text-navy title-glow">Những Người Gieo Nắng</h2>
+                    <p class="font-main text-dark subtitle-glow">Gương mặt đứng sau hành trình mang Sắc Ban Mai</p>
+                </div>
 
-/* 3. HIỆU ỨNG LƠ LỬNG (Đã fix để không làm lệch tâm) */
-.anim-float-title { animation: floatTitleGroup 4s ease-in-out infinite alternate; }
-@keyframes floatTitleGroup { 
-    /* Bắt buộc phải giữ lại translateX(-50%) để không bị lệch khỏi giữa màn hình */
-    0% { transform: translateX(-50%) translateY(0) rotate(-1deg); } 
-    100% { transform: translateX(-50%) translateY(-20px) rotate(1deg); } 
-}
+                <div class="bch-wrapper reveal-up delay-1">
+                    <h3 class="board-title font-cute text-pink">Ban Chỉ Huy Chiến Dịch</h3>
+                    <div class="bch-pyramid">
+                        <div class="tier-1">
+                            <div class="elite-card leader">
+                                <div class="elite-avatar"><img src="NHANSU/BTT/ledanhhoanggiang2.jpeg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Lê Danh Hoàng Giang</h4>
+                                <span class="role-badge">Chỉ huy Trưởng</span>
+                            </div>
+                        </div>
+                        <div class="tier-2">
+                            <div class="elite-card">
+                                <div class="elite-avatar"><img src="NHANSU/BTT/phamminhthu.jpg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Phạm Minh Thư</h4>
+                                <span class="role-badge">Chỉ huy Phó</span>
+                            </div>
+                            <div class="elite-card">
+                                <div class="elite-avatar"><img src="NHANSU/BTT/huynhthuyquynh.jpg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Huỳnh Thúy Quỳnh</h4>
+                                <span class="role-badge">Chỉ huy Phó</span>
+                            </div>
+                        </div>
+                        <div class="tier-3">
+                            <div class="elite-card uv">
+                                <div class="elite-avatar"><img src="NHANSU/LEAD/buiquynhanh2.jpeg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Bùi Quỳnh Anh</h4>
+                                <span class="role-badge">Chỉ huy Phó</span>
+                            </div>
+                            <div class="elite-card uv">
+                                <div class="elite-avatar"><img src="NHANSU/LEAD/danthu2.jpeg" alt="Ảnh"></div>
+                                <h4 class="member-name font-title">Nguyễn Thuỵ Đan Thư</h4>
+                                <span class="role-badge">Chỉ huy Phó</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-/* Mũi tên hướng dẫn cuộn */
-.scroll-magic-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 20; text-align: center; font-size: clamp(16px, 2vw, 20px); font-weight: 700; text-shadow: 0 2px 5px #000; }
-.scroll-magic-hint i { display: block; font-size: clamp(20px, 3vw, 28px); margin-top: 5px; animation: arrowBounce 1.5s infinite;}
-@keyframes arrowBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+                <div class="squads-wrapper reveal-up delay-2">
+                    <h3 class="board-title font-cute text-navy mt-50">Ban Điều Hành Đội Hình</h3>
+                    <div class="squads-magic-grid">
+                        
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-gift text-yellow"></i><h4 class="font-title text-navy">HĐ 1: Trao Ấm</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/HD1/bminh.jpeg"></div><h5 class="font-title text-navy">Bình Minh</h5><span class="squad-role">Phụ trách chính</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/HD1/qnhu.jpg"></div><h5 class="font-title text-navy">Quỳnh Như</h5><span class="squad-role">Phụ trách phó</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/HD1/thha.jpg"></div><h5 class="font-title text-navy">Thanh Hà</h5><span class="squad-role">Phụ trách phó</span></div>
 
-/* --- RESPONSIVE MOBILE CHO ẢNH --- */
-@media (max-width: 768px) {
-    .title-group { top: 24vh; }
-    .title-group { margin-top: -5vh; }
-    .sub-title-img { width: 200px; margin-bottom: -10%; } /* Căn chỉnh khoảng cách 2 ảnh trên đt */
-    .main-title-img { width: 320px; }
-}
+                            </div>
+                        </div>
 
-@media (max-width: 425px) {
-    .title-group { top: 24vh; }
-}
-/* =========================================
-   MODAL VÀ BANNER GÓP NẮNG
-========================================= */
-.donate-banner { background: linear-gradient(135deg, var(--yellow), var(--yellow-dark)); padding: 40px 0; margin-bottom: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; z-index: 10;}
-.donate-banner h2 { font-size: 30px; margin-bottom: 10px; }
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-fire text-yellow"></i><h4 class="font-title text-pink">HĐ 2: Thắp Lửa</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/BEP/ghung2.jpg"></div><h5 class="font-title text-navy">Gia Hưng</h5><span class="squad-role">Trưởng Bếp Sẻ Chia</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/BEP/ThanhDat.png"></div><h5 class="font-title text-navy">Thành Đạt</h5><span class="squad-role">Trưởng Bếp Kết Nối</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/BEP/tnam.JPG"></div><h5 class="font-title text-navy">Thành Nam</h5><span class="squad-role">Trưởng Bếp Lan Toả</span></div>
+                            </div>
+                        </div>
 
-.btn-donate-pulse {
-    background: var(--navy-blue); color: var(--white); 
-    padding: 15px 40px; border-radius: 50px; font-size: 20px; cursor: pointer; border: 2px solid #fff;
-    box-shadow: 0 0 0 rgba(0, 74, 173, 0.7); animation: pulseBtn 2s infinite; display: inline-block; margin-top: 15px; transition: 0.3s;
-}
-.btn-donate-pulse:hover { background: #fff; color: var(--navy-blue); border-color: var(--navy-blue); animation: none; transform: scale(1.05);}
-@keyframes pulseBtn { 0% { box-shadow: 0 0 0 0 rgba(0, 74, 173, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(0, 74, 173, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 74, 173, 0); } }
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-music text-yellow"></i><h4 class="font-title text-pink">Đội Sắc Ca</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/SacCa/tfet2.jpeg"></div><h5 class="font-title text-navy">Thành Phát</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/SacCa/baothy2.jpeg"></div><h5 class="font-title text-navy">Bảo Thy</h5><span class="squad-role">Đội phó</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/FF6B6B/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
 
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; }
-.modal-overlay.show { opacity: 1; visibility: visible; }
-.modal-content { position: relative; max-width: 90%; max-height: 90vh; animation: zoomIn 0.3s; }
-.letter-img { max-height: 85vh; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); object-fit: contain; display: block;}
-.close-modal { position: absolute; top: -20px; right: -20px; background: var(--pink); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; box-shadow: 0 5px 10px rgba(0,0,0,0.3); transition: 0.3s; }
-.close-modal:hover { transform: scale(1.1) rotate(90deg); }
-@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-cloud text-yellow"></i><h4 class="font-title text-pink">Đội Ánh Dương</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/anhduong/dieuchau.jpg"></div><h5 class="font-title text-navy">Diệu Châu</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/anhduong/hoanglam.JPG"></div><h5 class="font-title text-navy">Hoàng Lâm</h5><span class="squad-role">Đội phó</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/FF6B6B/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
 
-/* =========================================
-   4. LỜI NGỎ & CÁC SECTION HOẠT ĐỘNG
-========================================= */
-.section-dreamy-blue { background: var(--bg-dreamy); padding: clamp(60px, 10vw, 100px) 0; }
-.intro-box { max-width: 800px; margin: 0 auto 60px; }
-.glow-text-yellow { font-size: clamp(30px, 5vw, 45px); color: var(--yellow-dark); margin-bottom: 20px; transform: rotate(-2deg); text-shadow: 0 2px 5px rgba(0,0,0,0.1);}
-.dreamy-text { font-size: clamp(16px, 2vw, 20px); line-height: 1.8; color: var(--text-dark); }
+                        <div class="squad-glass-card">
+                            <div class="squad-header"><i class="fa-solid fa-camera text-yellow"></i><h4 class="font-title text-navy">Đội Truyền Thông</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/TruyenThong/tandet.jpeg"></div><h5 class="font-title text-navy">Tấn Đạt</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/004AAD/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
 
-.highlight-text-new { 
-    display: inline-block; white-space: nowrap; 
-    font-size: clamp(35px, 6vw, 55px); color: var(--navy-blue); 
-    background: transparent; padding: 10px 0; 
-    text-shadow: 0 0 15px var(--yellow), 0 0 30px var(--yellow); margin: 10px 0;
-}
+                        <div class="squad-glass-card">
+                            <div class="squad-header"><i class="fa-solid fa-fire text-yellow"></i><h4 class="font-title text-navy">Đội Ấm trong EM</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/AmtrongEm/boni2.jpeg"></div><h5 class="font-title text-navy">Bảo Nghi</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/004AAD/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
+                            </div>
+                        </div>
 
-.sunflower-countdown-wrapper { text-align: center; }
-.countdown-title { font-size: clamp(25px, 4vw, 35px); color: var(--navy-blue); margin-bottom: 30px; }
-.countdown-timer { display: flex; justify-content: center; gap: clamp(10px, 2vw, 20px); flex-wrap: wrap; }
-.time-flower { width: clamp(80px, 15vw, 120px); height: clamp(80px, 15vw, 120px); background: var(--yellow); border: 4px solid #FFF; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(255, 183, 3, 0.4), inset 0 0 15px rgba(255, 140, 0, 0.5); position: relative; transition: 0.3s; }
-.time-flower:hover { transform: scale(1.1) rotate(5deg); }
-.time-flower::before { content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; border: 4px dashed var(--yellow-dark); border-radius: 50%; animation: spinSun 20s linear infinite; pointer-events: none; }
-.time-flower .number { font-size: clamp(24px, 4vw, 40px); color: var(--navy-blue); line-height: 1; }
-.time-flower .label { font-size: clamp(14px, 2vw, 20px); color: #FFF; text-shadow: 1px 1px 0 var(--navy-blue); }
+                        <div class="squad-glass-card col-span-full">
+                            <div class="squad-header"><i class="fa-solid fa-sun text-yellow"></i><h4 class="font-title text-pink">Đội Em Mơ</h4></div>
+                            <div class="squad-roster">
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/EmMo/cattuong.jpg"></div><h5 class="font-title text-navy">Cát Tường</h5><span class="squad-role">Đội trưởng</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="NHANSU/EmMo/qtram .jpg"></div><h5 class="font-title text-navy">Quỳnh Trâm</h5><span class="squad-role">Đội phó</span></div>
+                                <div class="squad-member"><div class="squad-avatar"><img src="https://placehold.co/150x150/FF6B6B/FFF?text=?"></div><h5 class="font-title text-navy">?</h5><span class="squad-role">Đội phó</span></div>
 
-.activity-section { padding: 80px 0; overflow: hidden; }
-.bg-pastel-yellow { background-color: var(--bg-run); }
-.bg-pastel-orange { background-color: var(--bg-ws); }
-.bg-pastel-peach { background-color: var(--bg-act1); }
-.bg-pastel-blue { background-color: var(--bg-act2); }
-.bg-pastel-green { background-color: var(--bg-act3); }
+                            </div>
+                        </div>
 
-.split-act { display: flex; align-items: center; gap: 60px; }
-.split-act.reverse { flex-direction: row-reverse; }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.act-visual { flex: 1; text-align: center; }
-.act-img { width: 100%; max-width: 500px; aspect-ratio: 4/3; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-soft); border: 5px solid #fff; transform: rotate(-2deg); transition: 0.4s;}
-.split-act.reverse .act-img { transform: rotate(2deg); }
-.act-visual:hover .act-img { transform: scale(1.05) rotate(0); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    <!-- ==========================================
+         FOOTER (GIỮ NGUYÊN)
+    =========================================== -->
+    <footer id="footer" class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-box reveal-up">
+                    <h3 class="font-title text-yellow footer-title">☀️ Thông Tin Liên Hệ</h3>
+                    <ul class="contact-list font-main text-white">
+                        <li><i class="fa-solid fa-location-dot"></i> LCH Khoa Toán Kinh tế - UEL</li>
+                        <li><i class="fa-solid fa-envelope"></i> lchtoankinhte@st.uel.edu.vn</li>
+                        <li><i class="fa-brands fa-facebook"></i> LCH Khoa Toán Kinh Tế UEL</li>
+                        <li><i class="fa-brands fa-instagram"></i> _lchtktuel_</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright-text font-main">
+                &copy; 2026 Chiến dịch tình nguyện Gieo Nắng. Designed by _irtdn_ aka Nguyen Duc Tri.
+            </div>
+        </div>
+    </footer>
 
-.act-info { flex: 1; }
-.act-name { font-size: 45px; margin-bottom: 20px; line-height: 1.1; text-shadow: 2px 2px 0px #fff;}
-
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
-.info-item { display: flex; align-items: center; gap: 10px; font-family: 'Nunito'; font-weight: 700; font-size: 16px; color: var(--navy-blue); background: rgba(255,255,255,0.6); padding: 10px 15px; border-radius: 10px;}
-.info-item i { color: var(--yellow-dark); font-size: 20px;}
-
-.accordion-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
-.accordion-item { background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); overflow: hidden; border: 1px solid #eee; }
-.accordion-header { width: 100%; text-align: left; padding: 15px 20px; background: transparent; border: none; font-size: 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
-.accordion-header:hover { background: #fafafa; color: var(--yellow-dark); }
-.accordion-header i { transition: 0.3s; }
-.accordion-item.active .accordion-header i { transform: rotate(180deg); color: var(--yellow-dark); }
-.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; padding: 0 20px; background: #fafafa; }
-.accordion-content ul { padding-left: 20px; margin-bottom: 15px; }
-.accordion-content li { margin-bottom: 8px; color: #555; }
-.accordion-content p { margin-bottom: 15px; color: #555; margin-top: 10px;}
-
-.btn-join { display: inline-block; background: var(--pink); color: #fff; padding: 12px 30px; border-radius: 30px; font-size: 18px; transition: 0.3s; box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4); }
-.btn-join:hover { background: var(--navy-blue); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3); }
-
-/* =========================================
-   6. ĐỘI HÌNH
-========================================= */
-.section-team-magic { background-size: cover; background-position: center; background-attachment: fixed; position: relative; overflow: hidden; }
-.team-glass-overlay { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(5px); padding: clamp(60px, 10vw, 100px) 0 clamp(80px, 12vw, 120px) 0; width: 100%; height: 100%; }
-.title-glow { text-shadow: 2px 2px 0 #fff; margin-bottom: 10px; font-size: 45px;}
-.subtitle-glow { text-shadow: 1px 1px 0 #fff; margin-bottom: 60px; font-size: 18px;}
-.board-title { font-size: clamp(28px, 5vw, 45px); margin-bottom: 40px; display: inline-block; padding: 5px 20px; border-bottom: 3px dashed var(--yellow-dark); }
-
-.bch-pyramid { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-bottom: 80px;}
-.tier-1, .tier-2, .tier-3 { display: flex; justify-content: center; gap: clamp(20px, 4vw, 40px); flex-wrap: wrap;}
-
-.elite-card {
-    display: flex; flex-direction: column; align-items: center;
-    background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
-    padding: clamp(20px, 3vw, 30px) clamp(20px, 4vw, 40px); border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255,255,255,1); transition: 0.4s; width: clamp(220px, 30vw, 260px); text-align: center;
-}
-.elite-card.leader { width: clamp(260px, 35vw, 320px); border: 2px solid var(--yellow-dark); box-shadow: 0 20px 40px rgba(255, 183, 3, 0.2); }
-.elite-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0, 74, 173, 0.15); border-color: var(--sky-blue);}
-
-.elite-avatar { width: clamp(90px, 15vw, 120px); height: clamp(90px, 15vw, 120px); border-radius: 50%; padding: 5px; background: linear-gradient(135deg, var(--sky-blue), var(--yellow)); margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.elite-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #fff; background: #eee;}
-.elite-card.uv .elite-avatar { background: linear-gradient(135deg, #A8E6CF, #38B6FF); }
-.role-badge { background: var(--navy-blue); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 10px; font-family: 'Nunito'; }
-.leader .role-badge { background: var(--pink); }
-
-.squads-wrapper { margin-top: 50px; }
-.squads-magic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 4vw, 40px); max-width: 1100px; margin: 0 auto;}
-.col-span-full { grid-column: 1 / -1; }
-
-.squad-glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(15px); border-radius: 30px; padding: clamp(20px, 3vw, 30px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-.squad-glass-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-.squad-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px;}
-.squad-header i { font-size: clamp(24px, 4vw, 32px); color: var(--yellow-dark); }
-.squad-header h4 { font-size: clamp(22px, 4vw, 32px); margin: 0; }
-
-.squad-roster { display: flex; justify-content: center; gap: clamp(15px, 3vw, 25px); flex-wrap: wrap;}
-.squad-member { display: flex; flex-direction: column; align-items: center; width: clamp(100px, 15vw, 140px); text-align: center;}
-.squad-avatar { width: clamp(70px, 12vw, 90px); height: clamp(70px, 12vw, 90px); border-radius: 50%; border: 3px solid var(--white); box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 10px; background: #eee;}
-.squad-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-.squad-member h5 { font-size: clamp(15px, 2vw, 18px); color: var(--navy-blue); margin-bottom: 5px; }
-.squad-role { font-size: 13px; color: var(--text-dark); background: rgba(255,255,255,0.8); padding: 3px 10px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-weight: 700;}
-
-/* =========================================
-   7. FOOTER CHUẨN ĐỒNG BỘ 100% 
-   (ĐÃ FIX LỖI MARGIN TOP THỪA)
-========================================= */
-.main-footer { 
-    background: var(--navy-blue); color: #fff; 
-    padding: 80px 0 40px 0; text-align: left; 
-    margin-top: 0; /* XÓA KHOẢNG TRẮNG Ở ĐÂY */
-}
-
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.footer-title { font-size: clamp(24px, 4vw, 30px); color: var(--yellow); margin-bottom: 20px; }
-.footer-text { font-size: clamp(14px, 2vw, 16px); margin-bottom: 30px; color: #EAF4FC; }
-
-.btn-solid-yellow { display: inline-block; background: var(--yellow); color: var(--navy-blue); padding: 15px 35px; border-radius: 40px; font-size: clamp(14px, 2vw, 18px); font-weight: 800; transition: 0.3s; box-shadow: 0 10px 20px rgba(255, 183, 3, 0.3); border: 2px solid transparent; }
-.btn-solid-yellow:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255, 183, 3, 0.5); background: #fff; border-color: var(--yellow-dark);}
-
-.contact-list li { margin-bottom: 15px; font-size: clamp(14px, 2vw, 16px); font-weight: 600; display: flex; align-items: center; gap: 15px; color: #EAF4FC; }
-.contact-list i { color: var(--yellow); font-size: 20px;}
-.copyright-text { text-align: center; margin-top: 40px; font-size: 14px; color: rgba(255,255,255,0.5); }
-
-/* =========================================
-   8. ANIMATIONS REVEAL
-========================================= */
-.reveal-up { opacity: 0; transform: translateY(50px); transition: 0.8s ease-out; }
-.reveal-slide-left { opacity: 0; transform: translateX(50px); transition: 0.8s ease-out; }
-.reveal-slide-right { opacity: 0; transform: translateX(-50px); transition: 0.8s ease-out; }
-.reveal-up.active, .reveal-slide-left.active, .reveal-slide-right.active { opacity: 1; transform: translate(0,0); }
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-
-/* =========================================
-   9. RESPONSIVE (GIỮ NGUYÊN CẤU TRÚC + TỐI ƯU HERO SECTION)
-========================================= */
-
-/* --- 3. Mốc 992px (Code của bạn + Thêm Hero) --- */
-@media (max-width: 992px) {
-
-    /* Code layout cũ của bạn */
-    .bch-grid { grid-template-columns: repeat(2, 1fr); }
-    .squads-magic-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .contact-list li { justify-content: center; }
-    .split-act, .split-act.reverse { flex-direction: column; text-align: center; }
-    .info-grid { grid-template-columns: 1fr; }
-    .accordion-header { text-align: center; }
-}
-
-/* --- 4. Mốc 768px (Code của bạn + Tối ưu lại Hero) --- */
-@media (max-width: 768px) {
-
-    /* Code layout cũ của bạn */
-    header { padding: 15px 20px; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; box-shadow: var(--shadow-soft); }
-    .nav-links.active { display: flex; }
-    .nav-links li { width: 100%; border-bottom: 1px solid #eee; }
-    .nav-links li a { display: block; padding: 15px; text-align: center; color: var(--navy-blue) !important; text-shadow: none !important;}
-    .menu-toggle { display: block; }
-    .dropdown-menu { position: static; display: none; background: #fafafa; box-shadow: none; border: none;}
-    .dropdown:hover .dropdown-menu { display: block; }
-
-    .tier-1, .tier-2, .tier-3 { flex-direction: column; align-items: center; gap: 20px; }
-    .team-glass-overlay { padding: 40px 10px; }
-}
-
-/* --- 5. Mốc 425px (Chỉnh lại tọa độ bám đất) --- */
-@media (max-width: 425px) {
-
-    /* Nâng chữ Bắt đầu hành trình lên khỏi thảm hoa */
-    .scroll-magic-hint { bottom: 8%; font-size: 16px; }
-    .scroll-magic-hint i { font-size: 20px; }
-}
-
-/* --- 6. Mốc 375px (Và nhỏ hơn) --- */
-@media (max-width: 375px) {
-
-    /* Đẩy chữ cuộn trang lên khoảng trống mặt cỏ */
-    .scroll-magic-hint { bottom: 8%; font-size: 14px; }
-    .scroll-magic-hint i { font-size: 18px; }
-}
+    <script src="season5.js"></script>
+</body>
+</html>
