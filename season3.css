@@ -316,7 +316,7 @@ footer::before {
     display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; 
     padding-bottom: 40px; border-bottom: 2px dashed rgba(255,255,255,0.2); 
 }
-.footer-box h3 { font-family: 'Caveat', cursive; font-size: 35px; color: var(--yellow); margin-bottom: 15px; letter-spacing: 1px;}
+.footer-box h3 { font-family: 'Patrick Hand', cursive; font-size: 35px; color: var(--yellow); margin-bottom: 15px; letter-spacing: 1px;}
 .footer-desc { font-size: 16px; margin-bottom: 25px; color: #EAF4FC; line-height: 1.6;}
 .contact-list li { margin-bottom: 15px; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 15px; color: #EAF4FC; font-family: 'Quicksand', sans-serif;}
 .contact-list i { color: var(--pink); font-size: 20px;}
