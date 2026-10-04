@@ -117,7 +117,7 @@ header.scrolled .menu-toggle i { color: var(--navy-blue); }
 /* Lớp lót đen nhẹ giúp cụm chữ PNG nổi bần bật (Tùy chỉnh độ mờ ở số 0.3) */
 .video-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.1); 
+    background: rgba(0, 0, 0, 0.03); 
     z-index: 1;
 }
 
