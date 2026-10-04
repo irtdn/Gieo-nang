@@ -87,130 +87,109 @@ header.scrolled .nav-links > li > a { color: var(--navy-blue); text-shadow: none
 header.scrolled .menu-toggle i { color: var(--navy-blue); }
 
 /* =========================================
-   3. HERO SECTION - CHUẨN TỶ LỆ POSTER GỐC
+   3. HERO SECTION - VIDEO BACKGROUND
 ========================================= */
-.hero-parallax-scene {
-    height: 100vh; width: 100vw; position: relative;
-    overflow: hidden; background: var(--sky-blue); 
+#hero-video-scene {
+    height: 100vh; width: 100vw; max-width: 100%; position: relative;
+    overflow: hidden; background: var(--navy-blue); 
+    display: flex; justify-content: center; align-items: center; text-align: center;
 }
 
-.layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+/* --- SETTING CHO VIDEO --- */
+.bg-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    object-fit: cover; /* Che kín toàn bộ màn hình */
+    z-index: 0;
+}
 
-.p-layer-base-bg { background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 0; }
-.p-layer-bg { background-size: cover; background-position: center bottom; background-repeat: no-repeat; width: 110vw; height: 110vh; left: -5vw; top: -5vh; z-index: 2; opacity: 0.9;}
+/* Đổi Video theo thiết bị */
+.mobile-video { display: none; } 
 
-/* Mặt trời */
-.p-layer-sun img { position: absolute; top: 8%; left: 10%; width: clamp(120px, 15vw, 250px); mix-blend-mode: multiply; opacity: 0.85; z-index: 3;}
-.anim-spin-sun { animation: spinSun 40s linear infinite; }
-@keyframes spinSun { 100% { transform: rotate(360deg); } }
+@media (max-width: 768px) {
+    .desktop-video { display: none; } 
+    .mobile-video { display: block; } 
+}
 
-/* === CỤM TIÊU ĐỀ KÉP (SẮC BAN MAI) === */
-.p-layer-title { z-index: 5; }
+/* Lớp lót đen nhẹ giúp cụm chữ PNG nổi bần bật (Tùy chỉnh độ mờ ở số 0.3) */
+.video-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.1); 
+    z-index: 1;
+}
+
+/* --- CỤM TIÊU ĐỀ HÌNH ẢNH (3 ELEMENT) --- */
+.hero-content { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    z-index: 10; 
+    pointer-events: none; /* Tránh cản trở thao tác click vào video/menu */
+}
 
 .title-group {
     position: absolute;
-    top: 22%; 
+    
+    /* 1. CHỈNH VỊ TRÍ TỪ TRÊN TRẦN XUỐNG Ở ĐÂY (Càng nhỏ càng sát trên) */
+    /* Dùng vh (chữ V, chữ H) để tự tính theo chiều cao màn hình */
+    top: 18vh; 
+    
+    /* 2. CỤM LỆNH NÀY GIÚP LUÔN LUÔN NẰM CHÍNH GIỮA CHIỀU NGANG */
     left: 50%;
-    /* Lệnh transform sẽ được xử lý trong @keyframes bên dưới */
+    transform: translateX(-50%);
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
-.title-group .sub-title {
-    width: clamp(180px, 30vw, 480px); /* Chữ trên sẽ nhỏ hơn chữ dưới một chút */
-    margin-bottom: -15%; /* Kéo chữ dưới xích lên gần chữ trên (tùy viền trắng của ảnh) */
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
+/* ====================================================
+   TINH CHỈNH TỪNG HÌNH ẢNH (Sử dụng hàm clamp để tự co giãn)
+   Cấu trúc clamp(nhỏ nhất, độ co giãn, lớn nhất)
+==================================================== */
+
+
+/* Hình 2 (Ở giữa) */
+.hero-element-2 {
+    width: clamp(180px, 30vw, 450px); /* Chỉnh độ to/nhỏ của hình 2 */
+    margin-bottom: -8%; /* Chỉnh số âm này để kéo sát vào hình 3 bên dưới */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); 
 }
 
-.title-group .main-title {
-    width: clamp(280px, 45vw, 750px); 
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2)); 
+/* Hình 3 (Dưới cùng) */
+.hero-element-3 {
+    width: clamp(280px, 45vw, 750px); /* Chỉnh độ to/nhỏ của hình 3 */
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6)); 
 }
 
-/* Đưa animation vào thẻ cha để cả cụm cùng bay lơ lửng */
+/* 3. HIỆU ỨNG LƠ LỬNG (Đã fix để không làm lệch tâm) */
 .anim-float-title { animation: floatTitleGroup 4s ease-in-out infinite alternate; }
 @keyframes floatTitleGroup { 
+    /* Bắt buộc phải giữ lại translateX(-50%) để không bị lệch khỏi giữa màn hình */
     0% { transform: translateX(-50%) translateY(0) rotate(-1deg); } 
-    100% { transform: translateX(-50%) translateY(-15px) rotate(1deg); } 
+    100% { transform: translateX(-50%) translateY(-20px) rotate(1deg); } 
 }
 
-/* === NHÂN VẬT ĐẠP XE Y HỆT BỐ CỤC POSTER === */
-.p-layer-characters { z-index: 8; }
-
-/* Cậu bé: Ở bên trái, sát mặt cỏ */
-.char-boy { 
-    position: absolute;
-    width: clamp(200px, 22vw, 380px); 
-    animation: rideInBoy 4s cubic-bezier(0.25, 1, 0.5, 1) forwards, bikeBump 0.8s linear infinite alternate 4s; 
-}
-@keyframes rideInBoy { 
-    0% { left: 120vw; bottom: -15%; transform: rotate(-0deg); } 
-    /* Hạ thấp tọa độ bottom xuống 10% để bám đất */
-    100% { left: 42vw; bottom: 2%; transform: rotate(10deg); } 
-}
-@keyframes bikeBump { 0% { transform: translateY(0) rotate(10deg); } 100% { transform: translateY(6px) rotate(12deg); } }
-
-/* Cô bé: Ở bên phải, cao hơn cậu bé một chút xíu theo độ dốc đồi */
-.char-girl { 
-    position: absolute;
-    width: clamp(180px, 20vw, 350px); 
-    animation: runInGirl 4.5s cubic-bezier(0.25, 1, 0.5, 1) forwards, floatGirl 3s ease-in-out infinite alternate 4.5s; 
-}
-@keyframes runInGirl { 
-    0% { left: 135vw; bottom: -8%; transform: rotate(5deg); } 
-    /* Hạ thấp xuống 18%, bám ngay sau lưng cậu bé */
-    100% { left: 62vw; bottom: 3%; transform: rotate(6deg); } 
-}
-@keyframes floatGirl { 0% { transform: translateY(0) rotate(6deg); } 100% { transform: translateY(12px) rotate(6deg); } }
-
-
-/* === 1 LỚP THẢM HOA DUY NHẤT BÁM CHẶT ĐÁY MÀN HÌNH === */
-.p-layer-flower-front { z-index: 10; }
-
-.single-flower-layer {
-    position: absolute;
-    bottom: -10%; /* Ép sát đáy màn hình */
-    left: -2.5vw; /* Dư ra 2 bên một chút để khi hoa đung đưa không bị lộ viền trắng */
-    width: 105vw; /* Trải dài và lấp đầy toàn bộ từ trái qua phải */
-    
-    /* BÍ QUYẾT GIỮ FULL 100% ẢNH: Chiều cao tự động tỷ lệ theo ảnh gốc, KHÔNG CẮT XÉN */
-    height: auto; 
-    max-height: none; 
-    object-fit: fill; 
-    
-    transform-origin: bottom center;
-}
-
-.anim-sway-fast { animation: swayWind2 6s ease-in-out infinite alternate; }
-@keyframes swayWind2 { 
-    0% { transform: rotate(-1deg) scale(1.02); } 
-    100% { transform: rotate(1deg) scale(1.02); } 
-}
-
-/* Nút cuộn */
-.scroll-magic-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 20; text-align: center; color: var(--navy-blue); font-size: 20px; font-weight: 700; text-shadow: 0 2px 5px #fff; }
-.scroll-magic-hint i { display: block; font-size: 28px; margin-top: 5px; }
-.anim-bounce { animation: arrowBounce 1.5s infinite; }
+/* Mũi tên hướng dẫn cuộn */
+.scroll-magic-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 20; text-align: center; font-size: clamp(16px, 2vw, 20px); font-weight: 700; text-shadow: 0 2px 5px #000; }
+.scroll-magic-hint i { display: block; font-size: clamp(20px, 3vw, 28px); margin-top: 5px; animation: arrowBounce 1.5s infinite;}
 @keyframes arrowBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* RESPONSIVE ĐIỆN THOẠI */
+/* --- RESPONSIVE MOBILE CHO ẢNH --- */
 @media (max-width: 768px) {
-/* RESPONSIVE TRÊN ĐIỆN THOẠI */
-    .single-flower-layer { 
-        width: 120vw; /* Hơi to ra một xíu để hoa không bị quá thấp trên đt */
-        left: -10vw; 
-        height: auto; 
-    }    
-    .char-boy { width: 150px; animation: rideInBoyMobile 4s forwards, bikeBump 0.8s infinite alternate 4s; }
-    @keyframes rideInBoyMobile { 100% { left: 5vw; bottom: 12%; transform: rotate(-12deg);} }
-    
-    .char-girl { width: 130px; animation: runInGirlMobile 4.5s forwards, floatGirl 3s infinite alternate 4.5s;}
-    @keyframes runInGirlMobile { 100% { left: 45vw; bottom: 20%; transform: rotate(-8deg);} }
-    
-    .p-layer-title img { width: 280px; left: 50%; top: 12%;}
+    .title-group { top: 24vh; }
+    .title-group { margin-top: -5vh; }
+    .sub-title-img { width: 200px; margin-bottom: -10%; } /* Căn chỉnh khoảng cách 2 ảnh trên đt */
+    .main-title-img { width: 320px; }
 }
 
+@media (max-width: 425px) {
+    .title-group { top: 24vh; }
+}
 /* =========================================
    MODAL VÀ BANNER GÓP NẮNG
 ========================================= */
@@ -372,57 +351,8 @@ header.scrolled .menu-toggle i { color: var(--navy-blue); }
    9. RESPONSIVE (GIỮ NGUYÊN CẤU TRÚC + TỐI ƯU HERO SECTION)
 ========================================= */
 
-/* --- 1. Mốc 1440px (Chỉ chỉnh Hero) --- */
-@media (max-width: 1440px) {
-    .title-group { top: 15%; }
-    .title-group .main-title { width: clamp(350px, 40vw, 650px); }
-
-    .single-flower-layer { 
-        width: 110vw; 
-        left: -2vw; 
-        bottom: -10% !important; /* Kéo hoa lên cao (0% là chạm đáy, số âm càng nhỏ hoa càng cao) */
-    }
-
-    
-    @keyframes rideInBoy { 
-        0% { left: 120vw; bottom: -10%; transform: rotate(0deg); } 
-        100% { left: 30vw; bottom: 8%; transform: rotate(10deg); } 
-    }
-    @keyframes runInGirl { 
-        0% { left: 135vw; bottom: -5%; transform: rotate(5deg); } 
-        100% { left: 60vw; bottom: 2%; transform: rotate(6deg); } 
-    }
-}
-
-/* --- 2. Mốc 1200px (Chỉ chỉnh Hero) --- */
-@media (max-width: 1200px) {
-    .title-group { top: 20%; }
-    .title-group .main-title { width: 480px; }
-
-    .char-boy { width: 280px; }
-    .char-girl { width: 260px; }
-
-    .single-flower-layer { 
-        width: 110vw; 
-        left: -20vw; 
-        bottom: -3% !important; /* Kéo hoa lên cao (0% là chạm đáy, số âm càng nhỏ hoa càng cao) */
-    }
-
-    
-    @keyframes rideInBoy { 
-        0% { left: 120vw; bottom: -10%; } 
-        100% { left: 30vw; bottom: 8%; transform: rotate(10deg); } 
-    }
-    @keyframes runInGirl { 
-        0% { left: 135vw; bottom: -5%; } 
-        100% { left: 60vw; bottom: 2%; transform: rotate(6deg); } 
-    }
-}
-
 /* --- 3. Mốc 992px (Code của bạn + Thêm Hero) --- */
 @media (max-width: 992px) {
-    .title-group { top: 23%; }
-    .title-group .main-title { width: 420px; }
 
     /* Code layout cũ của bạn */
     .bch-grid { grid-template-columns: repeat(2, 1fr); }
@@ -432,31 +362,10 @@ header.scrolled .menu-toggle i { color: var(--navy-blue); }
     .split-act, .split-act.reverse { flex-direction: column; text-align: center; }
     .info-grid { grid-template-columns: 1fr; }
     .accordion-header { text-align: center; }
-
-        .single-flower-layer { 
-        width: 120vw; 
-        left: -20vw; 
-        bottom: -3% !important; /* Kéo hoa lên cao (0% là chạm đáy, số âm càng nhỏ hoa càng cao) */
-    }
-
-    /* Bổ sung Hero Fix */
-    .char-boy { width: 200px; }
-    .char-girl { width: 180px; }
-    
-    @keyframes rideInBoy { 
-        0% { left: 120vw; bottom: -10%; } 
-        100% { left: 30vw; bottom: 10%; transform: rotate(5deg); } 
-    }
-    @keyframes runInGirl { 
-        0% { left: 135vw; bottom: -5%; } 
-        100% { left: 60vw; bottom: 6%; transform: rotate(0deg); } 
-    }
 }
 
 /* --- 4. Mốc 768px (Code của bạn + Tối ưu lại Hero) --- */
 @media (max-width: 768px) {
-    .title-group { top: 28%; }
-    .title-group .main-title { width: 450px; }
 
     /* Code layout cũ của bạn */
     header { padding: 15px 20px; }
@@ -470,108 +379,20 @@ header.scrolled .menu-toggle i { color: var(--navy-blue); }
 
     .tier-1, .tier-2, .tier-3 { flex-direction: column; align-items: center; gap: 20px; }
     .team-glass-overlay { padding: 40px 10px; }
-
-    /* Bổ sung Hero Fix 768px */
-    .p-layer-sun img { width: 120px; top: 12%; }
-    
-    /* Chỉnh sửa thảm hoa thành height: auto để không bị méo ảnh */
-    .single-flower-layer { 
-        width: 120vw; 
-        left: -20vw; 
-        bottom: -3% !important; /* Kéo hoa lên cao (0% là chạm đáy, số âm càng nhỏ hoa càng cao) */
-    }
-
-    .char-boy { width: 180px; animation: rideInBoy768 4s forwards, floatGirl 1.5s infinite alternate 4s; }
-    .char-girl { width: 160px; animation: runInGirl768 4.5s forwards, floatGirl 3s infinite alternate 4.5s; }
-    
-    @keyframes rideInBoy768 { 
-        0% { left: 120vw; bottom: -10%; } 
-        100% { left: 30vw; bottom: 10%; transform: rotate(-5deg); } 
-    }
-    @keyframes runInGirl768 { 
-        0% { left: 135vw; bottom: -5%; } 
-        100% { left: 60vw; bottom: 6%; transform: rotate(-5deg); } 
-    }
 }
 
 /* --- 5. Mốc 425px (Chỉnh lại tọa độ bám đất) --- */
 @media (max-width: 425px) {
-    .title-group { top: 30%; }
-    .title-group .main-title { width: 350px; }
-
-    .p-layer-sun img { width: 100px; top: 8%; left: 5%; }
-    
-    .single-flower-layer { 
-        width: 160vw; 
-        left: -20vw; 
-        bottom: -3% !important; /* Kéo hoa lên cao (0% là chạm đáy, số âm càng nhỏ hoa càng cao) */
-    }
 
     /* Nâng chữ Bắt đầu hành trình lên khỏi thảm hoa */
-    .scroll-magic-hint { bottom: 12%; font-size: 16px; }
+    .scroll-magic-hint { bottom: 8%; font-size: 16px; }
     .scroll-magic-hint i { font-size: 20px; }
-
-    .char-boy { width: 160px; animation: rideInBoy425 4s forwards, floatGirl 1.5s infinite alternate 4s; }
-    .char-girl { width: 140px; animation: runInGirl425 4.5s forwards, floatGirl 3s infinite alternate 4.5s; }
-    
-    /* Kéo 2 nhân vật thấp xuống bám vào đồi cỏ */
-    @keyframes rideInBoy425 { 
-        0% { left: 120vw; bottom: -10%; } 
-        100% { left: 20vw; bottom: 8%; transform: rotate(-5deg); } 
-    }
-    @keyframes runInGirl425 { 
-        0% { left: 135vw; bottom: 10%; } 
-        100% { left: 60vw; bottom: 6%; transform: rotate(-5deg); } 
-    }
 }
 
 /* --- 6. Mốc 375px (Và nhỏ hơn) --- */
 @media (max-width: 375px) {
 
-    /* ÉP BỐ CỤC BACKGROUND LẤY PHẦN CHÍNH GIỮA ẢNH */
-    .p-layer-base-bg, 
-    .p-layer-bg {
-        background-position: center bottom !important; /* Lấy trung tâm chiều ngang, bám sát đáy đồi */
-    }
-    
-    /* 1. CHỈNH TIÊU ĐỀ TẠI ĐÂY */
-    .title-group { 
-        top: 30%; 
-        left: 50% !important; 
-    }
-    .title-group .main-title { width: 350px !important; }
-
-    
-    .p-layer-sun img { width: 80px; top: 8%; }
-    
-    /* 2. CHỈNH THẢM HOA TẠI ĐÂY */
-    .single-flower-layer { 
-        width: 180vw; 
-        left: -20vw; 
-        bottom: -3% !important; /* Kéo hoa lên cao (0% là chạm đáy, số âm càng nhỏ hoa càng cao) */
-    }
-
     /* Đẩy chữ cuộn trang lên khoảng trống mặt cỏ */
-    .scroll-magic-hint { bottom: 12%; font-size: 14px; }
+    .scroll-magic-hint { bottom: 8%; font-size: 14px; }
     .scroll-magic-hint i { font-size: 18px; }
-    
-    /* 3. CHỈNH KÍCH CỠ 2 NHÂN VẬT TẠI ĐÂY */
-    .char-boy { 
-        width: 130px !important; /* CHỈNH TO/NHỎ CẬU BÉ Ở ĐÂY */
-        animation: rideInBoy375 4s forwards, floatGirl 1.5s infinite alternate 4s; 
-    } 
-    .char-girl { 
-        width: 115px !important; /* CHỈNH TO/NHỎ CÔ BÉ Ở ĐÂY */
-        animation: runInGirl375 4.5s forwards, floatGirl 3s infinite alternate 4.5s; 
-    }
-    
-    /* Tọa độ điểm dừng của nhân vật (Đã đẩy cao lên 1 chút cho hợp với thảm hoa) */
-    @keyframes rideInBoy375 { 
-        0% { left: 120vw; bottom: -10%; } 
-        100% { left: 20vw; bottom: 10%; transform: rotate(-3deg); } 
-    }
-    @keyframes runInGirl375 { 
-        0% { left: 135vw; bottom: -5%; } 
-        100% { left: 60vw; bottom: 8%; transform: rotate(-5deg); } 
-    }
 }
